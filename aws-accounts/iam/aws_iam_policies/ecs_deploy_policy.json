@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowUserToECSDeploy",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:DescribeRepositories",
+        "ecr:DescribeImages",
+        "ecs:DescribeServices",
+        "ecs:DescribeTaskDefinition",
+        "ecs:RegisterTaskDefinition",
+        "ecs:UpdateService",
+        "ecs:RunTask",
+        "ecs:DescribeTasks",
+        "ecs:ListTasks",
+        "iam:PassRole"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
