@@ -2,7 +2,7 @@
   {
     "name": "${container_name}",
     "image": "${container_image}",
-    "cpu": 0,
+    "cpu": 333,
     "memory": 200,
     "essential": true,
     "portMappings": [

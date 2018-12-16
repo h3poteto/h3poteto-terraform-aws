@@ -23,5 +23,5 @@ variable "key_name" {
 }
 
 variable "ami" {
-  default = "ami-0041c416aa23033a2" # amzn-ami-2018.03.e-amazon-ecs-optimized
+  default = "ami-05b296a384694dfa4" # amzn-ami-2018.03.i-amazon-ecs-optimized
 }

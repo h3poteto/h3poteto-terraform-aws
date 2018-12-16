@@ -2,9 +2,9 @@
   {
     "name": "phoenix",
     "image": "${phoenix_container_image}",
-    "cpu": 0,
+    "cpu": 950,
     "memory": null,
-    "memoryReservation": 200,
+    "memoryReservation": 450,
     "essential": true,
     "workingDirectory": "/var/opt/app",
     "entryPoint": null,
@@ -27,7 +27,7 @@
   {
     "name": "${container_name}",
     "image": "${container_image}",
-    "cpu": 0,
+    "cpu": 50,
     "memory": null,
     "memoryReservation": 50,
     "essential": true,
