@@ -35,7 +35,7 @@ variable "spot_valid_until" {
 }
 
 variable "spot_allocation_strategy" {
-  default = "lowestPrice"
+  default = "diversified"
 }
 
 /*
