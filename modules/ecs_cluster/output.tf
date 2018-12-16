@@ -13,3 +13,7 @@ output "ecs_cluster_arn" {
 output "ecs_cluster_name" {
   value = "${aws_ecs_cluster.cluster.name}"
 }
+
+output "spot_fleet_request_id" {
+  value = "${aws_spot_fleet_request.spot_fleet.id}"
+}

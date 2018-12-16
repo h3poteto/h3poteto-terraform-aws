@@ -11,7 +11,8 @@ resource "aws_appautoscaling_policy" "scale_out" {
     metric_aggregation_type = "Maximum"
 
     step_adjustment {
-      scaling_adjustment = "${var.scale_out_adjustment}"
+      scaling_adjustment          = "${var.scale_out_adjustment}"
+      metric_interval_lower_bound = 1.0
     }
   }
 
@@ -31,7 +32,8 @@ resource "aws_appautoscaling_policy" "scale_in" {
     metric_aggregation_type = "Maximum"
 
     step_adjustment {
-      scaling_adjustment = "${var.scale_in_adjustment}"
+      scaling_adjustment          = "${var.scale_in_adjustment}"
+      metric_interval_lower_bound = 1.0
     }
   }
 

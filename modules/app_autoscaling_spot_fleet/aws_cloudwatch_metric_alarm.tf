@@ -1,7 +1,7 @@
 resource "aws_cloudwatch_metric_alarm" "ecs_cluster_metric_high" {
   alarm_name          = "${var.service}-${var.role}-${var.env}-ecs-cluster-${var.metric}-High"
   comparison_operator = "GreaterThanOrEqualToThreshold"
-  evaluation_periods  = "${var.cpu_high_evaluation_periods}"
+  evaluation_periods  = "${var.high_evaluation_periods}"
   namespace           = "AWS/ECS"
   metric_name         = "${var.metric}"
   period              = "${var.high_alarm_period}"
@@ -20,7 +20,7 @@ resource "aws_cloudwatch_metric_alarm" "ecs_cluster_metric_high" {
 resource "aws_cloudwatch_metric_alarm" "ecs_cluster_metric_low" {
   alarm_name          = "${var.service}-${var.role}-${var.env}-ecs-cluster-${var.metric}-Low"
   comparison_operator = "LessThanThreshold"
-  evaluation_periods  = "${var.cpu_low_evaluation_periods}"
+  evaluation_periods  = "${var.low_evaluation_periods}"
   namespace           = "AWS/ECS"
   metric_name         = "${var.metric}"
   period              = "${var.low_alarm_period}"
