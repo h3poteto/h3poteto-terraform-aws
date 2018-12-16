@@ -48,3 +48,15 @@ module "ecs_cluster" {
   ec2_instance_profile_arn = "${data.terraform_remote_state.aws_iam.ecs_instance_profile_arn}"
   spot_target_capacity     = "3"
 }
+
+module "autoscale_spot_fleet" {
+  source  = "../../../../modules/app_autoscaling_spot_fleet"
+  service = "${var.service}"
+  role    = "${var.role}"
+  env     = "${var.env}"
+
+  ecs_cluster_name      = "${module.ecs_cluster.ecs_cluster_name}"
+  spot_fleet_request_id = "${module.ecs_cluster.spot_fleet_request_id}"
+  role_arn              = "${data.terraform_remote_state.aws_iam.autoscale_ec2_spot_fleet_role_arn}"
+  low_threshold         = "30"
+}

@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowSpotFleetAutoscale",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeSpotFleetRequests",
+        "ec2:ModifySpotFleetRequest",
+        "cloudwatch:DeleteAlarms",
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:PutMetricAlarm"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

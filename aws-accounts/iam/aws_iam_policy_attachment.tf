@@ -149,3 +149,13 @@ resource "aws_iam_policy_attachment" "ecr_h3potet" {
 
   policy_arn = "${aws_iam_policy.ecr_h3poteto_access.arn}"
 }
+
+resource "aws_iam_policy_attachment" "spot_fleet_autoscale" {
+  name = "spot-fleet-autoscale"
+
+  roles = [
+    "${aws_iam_role.autoscale_ec2_spot_fleet_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.spot_fleet_autoscale.arn}"
+}
