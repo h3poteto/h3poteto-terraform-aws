@@ -66,7 +66,7 @@ variable "ecs_task_cleanup_wait_duration" {
  AutoscalingGroup
 */
 variable "instance_type" {
-  default = "t2.micro"
+  default = "t3.medium"
 }
 
 variable "ec2_instance_profile_arn" {}
