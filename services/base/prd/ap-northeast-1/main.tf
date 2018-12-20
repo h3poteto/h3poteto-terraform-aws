@@ -58,5 +58,4 @@ module "autoscale_spot_fleet" {
   ecs_cluster_name      = "${module.ecs_cluster.ecs_cluster_name}"
   spot_fleet_request_id = "${module.ecs_cluster.spot_fleet_request_id}"
   role_arn              = "arn:aws:iam::${var.account_id}:role/aws-service-role/ec2.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_EC2SpotFleetRequest"
-  low_threshold         = "30"
 }
