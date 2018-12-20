@@ -81,17 +81,3 @@ resource "aws_iam_policy" "ecr_h3poteto_access" {
   description = ""
   policy      = "${file("aws_iam_policies/ecr_h3poteto_access_policy.json")}"
 }
-
-resource "aws_iam_policy" "spot_fleet_autoscale" {
-  name        = "spot-fleet-autoscale"
-  path        = "/"
-  description = ""
-  policy      = "${file("aws_iam_policies/spot_fleet_autoscale_policy.json")}"
-}
-
-resource "aws_iam_policy" "ecs_autoscale" {
-  name        = "ecs-autoscale"
-  path        = "/"
-  description = ""
-  policy      = "${file("aws_iam_policies/ecs_autoscale_policy.json")}"
-}
