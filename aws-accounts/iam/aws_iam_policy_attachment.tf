@@ -159,3 +159,13 @@ resource "aws_iam_policy_attachment" "spot_fleet_autoscale" {
 
   policy_arn = "${aws_iam_policy.spot_fleet_autoscale.arn}"
 }
+
+resource "aws_iam_policy_attachment" "ecs_autoscale" {
+  name = "ecs-autoscale"
+
+  roles = [
+    "${aws_iam_role.autoscale_ecs_service_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.ecs_autoscale.arn}"
+}
