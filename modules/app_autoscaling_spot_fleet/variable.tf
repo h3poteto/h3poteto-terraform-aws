@@ -38,13 +38,13 @@ variable "scale_in_adjustment" {
 
 # Target metric
 variable "metric" {
-  default = "CPUUtilization"
+  default = "CPUReservation"
 }
 
 # Alarm
 # Scale-Out
 variable "high_evaluation_periods" {
-  default = "2"
+  default = "1"
 }
 
 variable "high_alarm_period" {
@@ -56,7 +56,7 @@ variable "high_alarm_statistic" {
 }
 
 variable "high_threshold" {
-  default = "60"
+  default = "70"
 }
 
 # Scale-In
