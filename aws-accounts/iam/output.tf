@@ -41,11 +41,3 @@ output "masudastream_prd_ecs_task_role_arn" {
 output "pleroma_prd_ecs_task_role_arn" {
   value = "${aws_iam_role.pleroma_prd_ecs_task_role.arn}"
 }
-
-output "autoscale_ec2_spot_fleet_role_arn" {
-  value = "${aws_iam_role.autoscale_ec2_spot_fleet_role.arn}"
-}
-
-output "autoscale_ecs_service_role_arn" {
-  value = "${aws_iam_role.autoscale_ecs_service_role.arn}"
-}

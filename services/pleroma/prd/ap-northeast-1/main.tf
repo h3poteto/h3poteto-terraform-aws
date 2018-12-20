@@ -40,5 +40,5 @@ module "autoscale" {
 
   ecs_cluster_name = "${data.terraform_remote_state.base_prd_tokyo.ecs_cluster_name}"
   ecs_service_name = "${module.pleroma_service.service_name}"
-  role_arn         = "${data.terraform_remote_state.aws_iam.autoscale_ecs_service_role_arn}"
+  role_arn         = "arn:aws:iam::${var.account_id}:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService"
 }
