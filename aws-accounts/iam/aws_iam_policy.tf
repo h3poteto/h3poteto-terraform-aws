@@ -88,3 +88,10 @@ resource "aws_iam_policy" "spot_fleet_autoscale" {
   description = ""
   policy      = "${file("aws_iam_policies/spot_fleet_autoscale_policy.json")}"
 }
+
+resource "aws_iam_policy" "ecs_autoscale" {
+  name        = "ecs-autoscale"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/ecs_autoscale_policy.json")}"
+}

@@ -37,6 +37,12 @@ resource "aws_iam_role" "autoscale_ec2_spot_fleet_role" {
   assume_role_policy = "${file("aws_iam_role_policies/ec2_autoscale_assume_role_policy.json")}"
 }
 
+resource "aws_iam_role" "autoscale_ecs_service_role" {
+  name               = "AutoScaleECSServiceRole"
+  path               = "/"
+  assume_role_policy = "${file("aws_iam_role_policies/ecs_autoscale_assume_role_policy.json")}"
+}
+
 /*
  ECS Task Role
 */
