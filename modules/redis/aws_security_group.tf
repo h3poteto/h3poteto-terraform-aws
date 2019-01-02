@@ -1,5 +1,5 @@
 resource "aws_security_group" "security_group" {
-  name        = "redis32-${var.service}-${var.env}"
+  name        = "redis-${var.service}-${var.env}"
   description = "Security group for ${var.service} on ${var.env}"
   vpc_id      = "${var.vpc_id}"
 
@@ -18,7 +18,7 @@ resource "aws_security_group" "security_group" {
   }
 
   tags {
-    Name    = "redis32-${var.service}-${var.env}"
+    Name    = "redis-${var.service}-${var.env}"
     service = "${var.service}"
     env     = "${var.env}"
     tfstate = "${var.tfstate}"
