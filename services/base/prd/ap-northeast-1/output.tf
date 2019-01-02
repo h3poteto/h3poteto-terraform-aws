@@ -14,6 +14,10 @@ output "ecs_cluster_arn" {
   value = "${module.ecs_cluster.ecs_cluster_arn}"
 }
 
+output "ecs_cluster_security_group_id" {
+  value = "${module.ecs_cluster.instance_security_group_id}"
+}
+
 output "lb_listener_http_arn" {
   value = "${module.alb.lb_listener_http_arn}"
 }
