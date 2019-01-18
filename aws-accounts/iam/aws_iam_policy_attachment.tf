@@ -149,3 +149,14 @@ resource "aws_iam_policy_attachment" "ecr_h3potet" {
 
   policy_arn = "${aws_iam_policy.ecr_h3poteto_access.arn}"
 }
+
+resource "aws_iam_policy_attachment" "ecs_erlang_cluster" {
+  name = "ecs-erlang-cluster"
+
+  roles = [
+    "${aws_iam_role.seiyuwatch_prd_ecs_task_role.name}",
+    "${aws_iam_role.pleroma_prd_ecs_task_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.ecs_erlang_cluster_policy.arn}"
+}

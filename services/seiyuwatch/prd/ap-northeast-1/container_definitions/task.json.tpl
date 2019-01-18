@@ -7,13 +7,8 @@
     "essential": true,
     "portMappings": [],
     "workingDirectory": "/var/opt/app",
-    "entryPoint": [
-      "./entrypoint.sh"
-    ],
-    "command": [
-      "./rel/seiyu_watch/bin/seiyu_watch",
-      "foreground"
-    ],
+    "entryPoint": null,
+    "command": null,
     "environment": [
       {
         "name": "SERVICE_ENV",

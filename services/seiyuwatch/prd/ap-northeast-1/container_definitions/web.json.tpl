@@ -10,16 +10,31 @@
         "hostPort": 0,
         "protocol": "tcp",
         "containerPort": ${container_port}
+      },
+      {
+        "containerPort": 4369,
+        "hostPort": 0,
+        "protocol": "tcp"
+      },
+      {
+        "containerPort": 4369,
+        "hostPort": 0,
+        "protocol": "udp"
+      },
+      {
+        "containerPort": 4370,
+        "hostPort": 0,
+        "protocol": "tcp"
+      },
+      {
+        "containerPort": 4370,
+        "hostPort": 0,
+        "protocol": "udp"
       }
     ],
     "workingDirectory": "/var/opt/app",
-    "entryPoint": [
-      "./entrypoint.sh"
-    ],
-    "command": [
-      "./rel/seiyu_watch/bin/seiyu_watch",
-      "foreground"
-    ],
+    "entryPoint": null,
+    "command": null,
     "environment": [
       {
         "name": "SERVICE_ENV",

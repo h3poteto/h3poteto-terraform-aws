@@ -81,3 +81,10 @@ resource "aws_iam_policy" "ecr_h3poteto_access" {
   description = ""
   policy      = "${file("aws_iam_policies/ecr_h3poteto_access_policy.json")}"
 }
+
+resource "aws_iam_policy" "ecs_erlang_cluster_policy" {
+  name        = "ecs-erlang-cluster-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/ecs_erlang_cluster_policy.json")}"
+}
