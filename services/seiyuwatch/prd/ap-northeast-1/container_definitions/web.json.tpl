@@ -13,22 +13,22 @@
       },
       {
         "containerPort": 4369,
-        "hostPort": 0,
+        "hostPort": 4369,
         "protocol": "tcp"
       },
       {
         "containerPort": 4369,
-        "hostPort": 0,
+        "hostPort": 4369,
         "protocol": "udp"
       },
       {
         "containerPort": 4370,
-        "hostPort": 0,
+        "hostPort": 4370,
         "protocol": "tcp"
       },
       {
         "containerPort": 4370,
-        "hostPort": 0,
+        "hostPort": 4370,
         "protocol": "udp"
       }
     ],
