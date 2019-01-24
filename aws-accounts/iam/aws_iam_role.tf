@@ -63,3 +63,18 @@ resource "aws_iam_role" "pleroma_prd_ecs_task_role" {
   path               = "/"
   assume_role_policy = "${file("aws_iam_role_policies/ecs_task_assume_role_policy.json")}"
 }
+
+/*
+ EKS
+*/
+resource "aws_iam_role" "eks_master_role" {
+  name               = "eks-master-role"
+  path               = "/"
+  assume_role_policy = "${file("aws_iam_role_policies/eks_assume_role_policy.json")}"
+}
+
+resource "aws_iam_role" "eks_node_role" {
+  name               = "eks-node-role"
+  path               = "/"
+  assume_role_policy = "${file("aws_iam_role_policies/ec2_assume_role_policy.json")}"
+}
