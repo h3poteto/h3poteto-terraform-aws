@@ -20,4 +20,7 @@ module "base_asg" {
   security_group_ids   = ["${aws_security_group.base_node.id}"]
   max_size             = "5"
   min_size             = "0"
+  spot_price           = "0.05"
+  custom_tag_key       = "kubernetes.io/cluster/${aws_eks_cluster.base.id}"
+  custom_tag_value     = "owned"
 }

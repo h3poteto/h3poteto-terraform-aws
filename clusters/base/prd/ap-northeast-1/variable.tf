@@ -11,7 +11,7 @@ variable "tfstate" {
 }
 
 variable "ami" {
-  default = "ami-0f0e8066383e7a2cb" # amazon-eks-node-1.11-v20190109
+  default = "ami-08727f352c823c2a0" # amazon-eks-node-v25
 }
 
 variable "key_name" {

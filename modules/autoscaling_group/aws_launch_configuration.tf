@@ -5,6 +5,7 @@ resource "aws_launch_configuration" "as_conf" {
   key_name             = "${var.key_name}"
   security_groups      = ["${var.security_group_ids}"]
   user_data            = "${var.user_data}"
+  spot_price           = "${var.spot_price}"
 
   root_block_device {
     volume_type           = "gp2"
