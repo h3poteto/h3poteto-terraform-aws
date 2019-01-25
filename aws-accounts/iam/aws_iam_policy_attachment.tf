@@ -160,3 +160,63 @@ resource "aws_iam_policy_attachment" "ecs_erlang_cluster" {
 
   policy_arn = "${aws_iam_policy.ecs_erlang_cluster_policy.arn}"
 }
+
+resource "aws_iam_policy_attachment" "eks_cluster" {
+  name = "eks-cluster"
+
+  roles = [
+    "${aws_iam_role.eks_master_role.name}",
+  ]
+
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+}
+
+resource "aws_iam_policy_attachment" "eks_service" {
+  name = "eks-service"
+
+  roles = [
+    "${aws_iam_role.eks_master_role.name}",
+  ]
+
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
+}
+
+resource "aws_iam_policy_attachment" "eks_worker" {
+  name = "eks-worker"
+
+  roles = [
+    "${aws_iam_role.eks_node_role.name}",
+  ]
+
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+}
+
+resource "aws_iam_policy_attachment" "eks_cni" {
+  name = "eks-cni"
+
+  roles = [
+    "${aws_iam_role.eks_node_role.name}",
+  ]
+
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+}
+
+resource "aws_iam_policy_attachment" "ecr_read_only" {
+  name = "ecr-read-only"
+
+  roles = [
+    "${aws_iam_role.eks_node_role.name}",
+  ]
+
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+}
+
+resource "aws_iam_policy_attachment" "ec2_tag" {
+  name = "ec2-tag"
+
+  roles = [
+    "${aws_iam_role.eks_node_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.ec2_tag_policy.arn}"
+}

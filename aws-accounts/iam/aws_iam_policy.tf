@@ -88,3 +88,10 @@ resource "aws_iam_policy" "ecs_erlang_cluster_policy" {
   description = ""
   policy      = "${file("aws_iam_policies/ecs_erlang_cluster_policy.json")}"
 }
+
+resource "aws_iam_policy" "ec2_tag_policy" {
+  name        = "ec2-tag-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/ec2_tag_policy.json")}"
+}
