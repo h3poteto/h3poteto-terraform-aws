@@ -41,10 +41,4 @@ resource "aws_autoscaling_group" "asg" {
     value               = "${var.tfstate}"
     propagate_at_launch = true
   }
-
-  tag {
-    key                 = "${var.custom_tag_key}"
-    value               = "${var.custom_tag_value}"
-    propagate_at_launch = true
-  }
 }

@@ -43,9 +43,3 @@ variable "user_data" {}
 variable "volume_size" {
   default = "30"
 }
-
-variable "custom_tag_key" {}
-
-variable "custom_tag_value" {}
-
-variable "spot_price" {}

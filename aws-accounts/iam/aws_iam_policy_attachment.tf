@@ -210,3 +210,13 @@ resource "aws_iam_policy_attachment" "ecr_read_only" {
 
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
+
+resource "aws_iam_policy_attachment" "ec2_tag" {
+  name = "ec2-tag"
+
+  roles = [
+    "${aws_iam_role.eks_node_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.ec2_tag_policy.arn}"
+}

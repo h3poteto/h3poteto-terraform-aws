@@ -23,5 +23,7 @@ data "template_file" "user_data" {
     master_endpoint       = "${aws_eks_cluster.base.endpoint}"
     certificate_authority = "${aws_eks_cluster.base.certificate_authority.0.data}"
     name                  = "${aws_eks_cluster.base.id}"
+    custom_tag_key        = "kubernetes.io/cluster/${aws_eks_cluster.base.id}"
+    custom_tag_value      = "owned"
   }
 }

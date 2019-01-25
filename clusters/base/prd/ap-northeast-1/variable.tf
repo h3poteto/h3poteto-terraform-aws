@@ -21,3 +21,19 @@ variable "key_name" {
 variable "volume_size" {
   default = "50"
 }
+
+variable "max_spot_price" {
+  default = "0.1"
+}
+
+variable "spot_target_capacity" {
+  default = "2"
+}
+
+variable "spot_valid_until" {
+  default = "2020-11-04T20:44:20Z"
+}
+
+variable "spot_allocation_strategy" {
+  default = "diversified"
+}
