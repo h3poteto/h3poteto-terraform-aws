@@ -102,3 +102,10 @@ resource "aws_iam_policy" "sts_assume_role_policy" {
   description = ""
   policy      = "${file("aws_iam_policies/sts_assume_role_policy.json")}"
 }
+
+resource "aws_iam_policy" "alb_ingress_policy" {
+  name        = "alb-ingress-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/alb_ingress_policy.json")}"
+}

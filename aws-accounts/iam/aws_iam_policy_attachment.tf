@@ -233,3 +233,13 @@ resource "aws_iam_policy_attachment" "sts_assume_role" {
 
   policy_arn = "${aws_iam_policy.sts_assume_role_policy.arn}"
 }
+
+resource "aws_iam_policy_attachment" "alb_ingress" {
+  name = "alb-ingress"
+
+  roles = [
+    "${aws_iam_role.alb_ingress_controller_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.alb_ingress_policy.arn}"
+}
