@@ -84,3 +84,9 @@ resource "aws_iam_role" "fascia_prd_pod_role" {
   path               = "/"
   assume_role_policy = "${data.template_file.eks_pod_assume_role_policy.rendered}"
 }
+
+resource "aws_iam_role" "alb_ingress_controller_role" {
+  name               = "alb-ingress-controller-role"
+  path               = "/"
+  assume_role_policy = "${data.template_file.eks_pod_assume_role_policy.rendered}"
+}
