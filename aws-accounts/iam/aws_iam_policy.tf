@@ -95,3 +95,10 @@ resource "aws_iam_policy" "ec2_tag_policy" {
   description = ""
   policy      = "${file("aws_iam_policies/ec2_tag_policy.json")}"
 }
+
+resource "aws_iam_policy" "sts_assume_role_policy" {
+  name        = "sts-assume-role-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/sts_assume_role_policy.json")}"
+}

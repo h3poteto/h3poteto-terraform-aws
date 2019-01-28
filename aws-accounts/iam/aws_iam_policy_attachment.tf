@@ -13,6 +13,7 @@ resource "aws_iam_policy_attachment" "kms_production" {
   roles = [
     "${aws_iam_role.asumibot_ec2_role.name}",
     "${aws_iam_role.fascia_prd_ecs_task_role.name}",
+    "${aws_iam_role.fascia_prd_pod_role.name}",
     "${aws_iam_role.whalebirdorg_prd_ecs_task_role.name}",
     "${aws_iam_role.seiyuwatch_prd_ecs_task_role.name}",
     "${aws_iam_role.masudastream_prd_ecs_task_role.name}",
@@ -30,6 +31,7 @@ resource "aws_iam_policy_attachment" "ssm_get_parameter" {
 
   roles = [
     "${aws_iam_role.fascia_prd_ecs_task_role.name}",
+    "${aws_iam_role.fascia_prd_pod_role.name}",
     "${aws_iam_role.whalebirdorg_prd_ecs_task_role.name}",
     "${aws_iam_role.seiyuwatch_prd_ecs_task_role.name}",
     "${aws_iam_role.masudastream_prd_ecs_task_role.name}",
@@ -55,6 +57,7 @@ resource "aws_iam_policy_attachment" "ses_sending" {
 
   roles = [
     "${aws_iam_role.fascia_prd_ecs_task_role.name}",
+    "${aws_iam_role.fascia_prd_pod_role.name}",
   ]
 
   policy_arn = "${aws_iam_policy.ses_sending_access.arn}"
@@ -219,4 +222,14 @@ resource "aws_iam_policy_attachment" "ec2_tag" {
   ]
 
   policy_arn = "${aws_iam_policy.ec2_tag_policy.arn}"
+}
+
+resource "aws_iam_policy_attachment" "sts_assume_role" {
+  name = "sts-assume-role"
+
+  roles = [
+    "${aws_iam_role.eks_node_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.sts_assume_role_policy.arn}"
 }
