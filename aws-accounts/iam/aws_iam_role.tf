@@ -90,3 +90,9 @@ resource "aws_iam_role" "alb_ingress_controller_role" {
   path               = "/"
   assume_role_policy = "${data.template_file.eks_pod_assume_role_policy.rendered}"
 }
+
+resource "aws_iam_role" "external_dns_role" {
+  name               = "external-dns-role"
+  path               = "/"
+  assume_role_policy = "${data.template_file.eks_pod_assume_role_policy.rendered}"
+}

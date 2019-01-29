@@ -109,3 +109,10 @@ resource "aws_iam_policy" "alb_ingress_policy" {
   description = ""
   policy      = "${file("aws_iam_policies/alb_ingress_policy.json")}"
 }
+
+resource "aws_iam_policy" "route53_change_record_policy" {
+  name        = "route53-change-record-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/route53_change_record_policy.json")}"
+}
