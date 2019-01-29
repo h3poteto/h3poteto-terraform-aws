@@ -1,3 +1,6 @@
+/*
+ EKS cluster
+*/
 resource "aws_security_group" "base_master" {
   name        = "${var.namespace}-master-${var.env}"
   description = "EKS master security group"
@@ -136,5 +139,72 @@ resource "aws_security_group" "internal_lb" {
 
   tags {
     Name = "${var.namespace}-internal-lb-${var.env}"
+  }
+}
+
+/*
+ DB
+*/
+resource "aws_security_group" "mysql_security_group" {
+  name        = "${var.namespace}-db-${var.env}-mysql"
+  description = "RDS security group"
+  vpc_id      = "${data.terraform_remote_state.aws_vpc_tokyo.vpc_id}"
+
+  ingress {
+    from_port = "3306"
+    to_port   = "3306"
+    protocol  = "tcp"
+
+    security_groups = [
+      "${aws_security_group.base_node.id}",
+      "sg-20c0ac58",
+    ] # base-default-prd-instance; which is a security group for ECS Clusters.
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags {
+    Name      = "${var.namespace}-db-${var.env}-mysql"
+    namespace = "${var.namespace}"
+    role      = "db"
+    env       = "${var.env}"
+    tfstate   = "${var.tfstate}"
+  }
+}
+
+resource "aws_security_group" "postgres_security_group" {
+  name        = "${var.namespace}-db-${var.env}-postgres"
+  description = "RDS security group"
+  vpc_id      = "${data.terraform_remote_state.aws_vpc_tokyo.vpc_id}"
+
+  ingress {
+    from_port = "5432"
+    to_port   = "5432"
+    protocol  = "tcp"
+
+    security_groups = [
+      "${aws_security_group.base_node.id}",
+      "sg-20c0ac58",
+    ] # base-default-prd-instance; which is a security group for ECS Clusters.
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags {
+    Name      = "${var.namespace}-db-${var.env}-postgres"
+    namespace = "${var.namespace}"
+    role      = "db"
+    env       = "${var.env}"
+    tfstate   = "${var.tfstate}"
   }
 }
