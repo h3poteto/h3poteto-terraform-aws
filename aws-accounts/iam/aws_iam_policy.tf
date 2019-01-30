@@ -116,3 +116,10 @@ resource "aws_iam_policy" "route53_change_record_policy" {
   description = ""
   policy      = "${file("aws_iam_policies/route53_change_record_policy.json")}"
 }
+
+resource "aws_iam_policy" "eks_authentication_policy" {
+  name        = "eks-authentication-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/eks_authentication_policy.json")}"
+}
