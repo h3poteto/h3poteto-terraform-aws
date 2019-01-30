@@ -253,3 +253,13 @@ resource "aws_iam_policy_attachment" "route53_change_record" {
 
   policy_arn = "${aws_iam_policy.route53_change_record_policy.arn}"
 }
+
+resource "aws_iam_policy_attachment" "eks_authentication" {
+  name = "eks-authentication"
+
+  users = [
+    "${aws_iam_user.circleci.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.eks_authentication_policy.arn}"
+}
