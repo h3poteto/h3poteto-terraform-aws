@@ -96,3 +96,9 @@ resource "aws_iam_role" "external_dns_role" {
   path               = "/"
   assume_role_policy = "${data.template_file.eks_pod_assume_role_policy.rendered}"
 }
+
+resource "aws_iam_role" "whalebirdorg_prd_pod_role" {
+  name               = "whalebirdorg-prd-pod-role"
+  path               = "/"
+  assume_role_policy = "${data.template_file.eks_pod_assume_role_policy.rendered}"
+}
