@@ -19,6 +19,7 @@ resource "aws_iam_policy_attachment" "kms_production" {
     "${aws_iam_role.seiyuwatch_prd_ecs_task_role.name}",
     "${aws_iam_role.masudastream_prd_ecs_task_role.name}",
     "${aws_iam_role.pleroma_prd_ecs_task_role.name}",
+    "${aws_iam_role.pleromaio_prd_pod_role.name}",
   ]
 
   policy_arn = "${module.h3poteto_production_kms.iam_policy_arn}"
@@ -38,6 +39,7 @@ resource "aws_iam_policy_attachment" "ssm_get_parameter" {
     "${aws_iam_role.seiyuwatch_prd_ecs_task_role.name}",
     "${aws_iam_role.masudastream_prd_ecs_task_role.name}",
     "${aws_iam_role.pleroma_prd_ecs_task_role.name}",
+    "${aws_iam_role.pleromaio_prd_pod_role.name}",
   ]
 
   policy_arn = "${aws_iam_policy.ssm_get_parameter_policy.arn}"
@@ -80,6 +82,7 @@ resource "aws_iam_policy_attachment" "s3_media_pleroma_io" {
 
   roles = [
     "${aws_iam_role.pleroma_prd_ecs_task_role.name}",
+    "${aws_iam_role.pleromaio_prd_pod_role.name}",
   ]
 
   policy_arn = "${aws_iam_policy.s3_media_pleroma_io_access.arn}"
