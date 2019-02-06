@@ -108,3 +108,9 @@ resource "aws_iam_role" "pleromaio_prd_pod_role" {
   path               = "/"
   assume_role_policy = "${data.template_file.eks_pod_assume_role_policy.rendered}"
 }
+
+resource "aws_iam_role" "seiyuwatch_prd_pod_role" {
+  name               = "seiyuwatch-prd-pod-role"
+  path               = "/"
+  assume_role_policy = "${data.template_file.eks_pod_assume_role_policy.rendered}"
+}
