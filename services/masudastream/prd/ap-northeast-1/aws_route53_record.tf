@@ -4,8 +4,8 @@ resource "aws_route53_record" "masuda_stream_net" {
   type    = "A"
 
   alias {
-    name                   = "${data.terraform_remote_state.base_prd_tokyo.lb_dns_name}"
-    zone_id                = "${data.terraform_remote_state.base_prd_tokyo.lb_zone_id}"
+    name                   = "${aws_cloudfront_distribution.masuda_stream_net.domain_name}"
+    zone_id                = "${aws_cloudfront_distribution.masuda_stream_net.hosted_zone_id}"
     evaluate_target_health = true
   }
 }
