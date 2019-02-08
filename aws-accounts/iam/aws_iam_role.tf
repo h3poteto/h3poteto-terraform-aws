@@ -114,3 +114,9 @@ resource "aws_iam_role" "seiyuwatch_prd_pod_role" {
   path               = "/"
   assume_role_policy = "${data.template_file.eks_pod_assume_role_policy.rendered}"
 }
+
+resource "aws_iam_role" "masudastream_prd_pod_role" {
+  name               = "masudastream-prd-pod-role"
+  path               = "/"
+  assume_role_policy = "${data.template_file.eks_pod_assume_role_policy.rendered}"
+}

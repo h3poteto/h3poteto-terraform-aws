@@ -19,6 +19,7 @@ resource "aws_iam_policy_attachment" "kms_production" {
     "${aws_iam_role.seiyuwatch_prd_ecs_task_role.name}",
     "${aws_iam_role.seiyuwatch_prd_pod_role.name}",
     "${aws_iam_role.masudastream_prd_ecs_task_role.name}",
+    "${aws_iam_role.masudastream_prd_pod_role.name}",
     "${aws_iam_role.pleroma_prd_ecs_task_role.name}",
     "${aws_iam_role.pleromaio_prd_pod_role.name}",
   ]
@@ -40,6 +41,7 @@ resource "aws_iam_policy_attachment" "ssm_get_parameter" {
     "${aws_iam_role.seiyuwatch_prd_ecs_task_role.name}",
     "${aws_iam_role.seiyuwatch_prd_pod_role.name}",
     "${aws_iam_role.masudastream_prd_ecs_task_role.name}",
+    "${aws_iam_role.masudastream_prd_pod_role.name}",
     "${aws_iam_role.pleroma_prd_ecs_task_role.name}",
     "${aws_iam_role.pleromaio_prd_pod_role.name}",
   ]
