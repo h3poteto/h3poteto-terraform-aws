@@ -157,8 +157,7 @@ resource "aws_security_group" "mysql_security_group" {
 
     security_groups = [
       "${aws_security_group.base_node.id}",
-      "sg-20c0ac58",
-    ] # base-default-prd-instance; which is a security group for ECS Clusters.
+    ]
   }
 
   egress {
@@ -189,8 +188,7 @@ resource "aws_security_group" "postgres_security_group" {
 
     security_groups = [
       "${aws_security_group.base_node.id}",
-      "sg-20c0ac58",
-    ] # base-default-prd-instance; which is a security group for ECS Clusters.
+    ]
   }
 
   egress {
