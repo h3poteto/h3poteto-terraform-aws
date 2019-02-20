@@ -47,7 +47,7 @@ resource "aws_spot_fleet_request" "eks_node" {
     user_data              = "${data.template_file.user_data.rendered}"
     vpc_security_group_ids = ["${aws_security_group.base_node.id}"]
     weighted_capacity      = 2
-    spot_price             = "0.0547"
+    spot_price             = "0.02735"
 
     root_block_device {
       volume_size = "${var.volume_size}"
@@ -73,7 +73,7 @@ resource "aws_spot_fleet_request" "eks_node" {
     user_data              = "${data.template_file.user_data.rendered}"
     vpc_security_group_ids = ["${aws_security_group.base_node.id}"]
     weighted_capacity      = 4
-    spot_price             = "0.0547"
+    spot_price             = "0.02735"
 
     root_block_device {
       volume_size = "${var.volume_size}"
@@ -99,7 +99,7 @@ resource "aws_spot_fleet_request" "eks_node" {
     user_data              = "${data.template_file.user_data.rendered}"
     vpc_security_group_ids = ["${aws_security_group.base_node.id}"]
     weighted_capacity      = 8
-    spot_price             = "0.0547"
+    spot_price             = "0.02735"
 
     root_block_device {
       volume_size = "${var.volume_size}"
@@ -125,7 +125,7 @@ resource "aws_spot_fleet_request" "eks_node" {
     user_data              = "${data.template_file.user_data.rendered}"
     vpc_security_group_ids = ["${aws_security_group.base_node.id}"]
     weighted_capacity      = 2
-    spot_price             = "0.0645"
+    spot_price             = "0.02735"
 
     root_block_device {
       volume_size = "${var.volume_size}"
@@ -151,7 +151,7 @@ resource "aws_spot_fleet_request" "eks_node" {
     user_data              = "${data.template_file.user_data.rendered}"
     vpc_security_group_ids = ["${aws_security_group.base_node.id}"]
     weighted_capacity      = 4
-    spot_price             = "0.0645"
+    spot_price             = "0.02735"
 
     root_block_device {
       volume_size = "${var.volume_size}"
@@ -177,7 +177,7 @@ resource "aws_spot_fleet_request" "eks_node" {
     user_data              = "${data.template_file.user_data.rendered}"
     vpc_security_group_ids = ["${aws_security_group.base_node.id}"]
     weighted_capacity      = 2
-    spot_price             = "0.062"
+    spot_price             = "0.02735"
 
     root_block_device {
       volume_size = "${var.volume_size}"
@@ -203,7 +203,7 @@ resource "aws_spot_fleet_request" "eks_node" {
     user_data              = "${data.template_file.user_data.rendered}"
     vpc_security_group_ids = ["${aws_security_group.base_node.id}"]
     weighted_capacity      = 4
-    spot_price             = "0.062"
+    spot_price             = "0.02735"
 
     root_block_device {
       volume_size = "${var.volume_size}"
@@ -229,7 +229,7 @@ resource "aws_spot_fleet_request" "eks_node" {
     user_data              = "${data.template_file.user_data.rendered}"
     vpc_security_group_ids = ["${aws_security_group.base_node.id}"]
     weighted_capacity      = 1
-    spot_price             = "0.096"
+    spot_price             = "0.0137"
 
     root_block_device {
       volume_size = "${var.volume_size}"
@@ -255,7 +255,7 @@ resource "aws_spot_fleet_request" "eks_node" {
     user_data              = "${data.template_file.user_data.rendered}"
     vpc_security_group_ids = ["${aws_security_group.base_node.id}"]
     weighted_capacity      = 2
-    spot_price             = "0.0965"
+    spot_price             = "0.02735"
 
     root_block_device {
       volume_size = "${var.volume_size}"
@@ -281,7 +281,7 @@ resource "aws_spot_fleet_request" "eks_node" {
     user_data              = "${data.template_file.user_data.rendered}"
     vpc_security_group_ids = ["${aws_security_group.base_node.id}"]
     weighted_capacity      = 4
-    spot_price             = "0.09625"
+    spot_price             = "0.02735"
 
     root_block_device {
       volume_size = "${var.volume_size}"
@@ -307,7 +307,7 @@ resource "aws_spot_fleet_request" "eks_node" {
     user_data              = "${data.template_file.user_data.rendered}"
     vpc_security_group_ids = ["${aws_security_group.base_node.id}"]
     weighted_capacity      = 8
-    spot_price             = "0.09625"
+    spot_price             = "0.02735"
 
     root_block_device {
       volume_size = "${var.volume_size}"
