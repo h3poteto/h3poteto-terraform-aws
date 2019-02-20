@@ -8,11 +8,6 @@ resource "aws_iam_instance_profile" "ecs_instance_profile" {
   role = "${aws_iam_role.ecs_ec2_role.name}"
 }
 
-resource "aws_iam_instance_profile" "eks_node_profile" {
-  name = "eks-node-profile"
-  role = "${aws_iam_role.eks_node_role.name}"
-}
-
 resource "aws_iam_instance_profile" "k8s_master_profile" {
   name = "k8s-master-profile"
   role = "${aws_iam_role.k8s_master_role.name}"

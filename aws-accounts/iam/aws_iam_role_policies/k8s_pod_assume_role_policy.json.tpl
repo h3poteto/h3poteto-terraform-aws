@@ -11,13 +11,6 @@
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "${eks_node_instance_role_arn}"
-      },
-      "Action": "sts:AssumeRole"
-    },
-    {
-      "Effect": "Allow",
-      "Principal": {
         "AWS": "${k8s_node_instance_role_arn}"
       },
       "Action": "sts:AssumeRole"
