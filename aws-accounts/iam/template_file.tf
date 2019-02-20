@@ -3,5 +3,6 @@ data "template_file" "eks_pod_assume_role_policy" {
 
   vars {
     eks_node_instance_role_arn = "${aws_iam_role.eks_node_role.arn}"
+    k8s_node_instance_role_arn = "${aws_iam_role.k8s_node_role.arn}"
   }
 }

@@ -234,11 +234,52 @@ resource "aws_iam_policy_attachment" "ec2_tag" {
   policy_arn = "${aws_iam_policy.ec2_tag_policy.arn}"
 }
 
+resource "aws_iam_policy_attachment" "k8s_cluster" {
+  name = "k8s-cluster"
+
+  roles = [
+    "${aws_iam_role.k8s_master_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.k8s_cluster.arn}"
+}
+
+resource "aws_iam_policy_attachment" "ec2_network_access" {
+  name = "ec2-network-access"
+
+  roles = [
+    "${aws_iam_role.k8s_node_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.ec2_network_access.arn}"
+}
+
+resource "aws_iam_policy_attachment" "ecr_get" {
+  name = "ecr-get"
+
+  roles = [
+    "${aws_iam_role.k8s_node_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.ecr_get.arn}"
+}
+
+resource "aws_iam_policy_attachment" "s3_get" {
+  name = "s3-get"
+
+  roles = [
+    "${aws_iam_role.k8s_node_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.s3_get.arn}"
+}
+
 resource "aws_iam_policy_attachment" "sts_assume_role" {
   name = "sts-assume-role"
 
   roles = [
     "${aws_iam_role.eks_node_role.name}",
+    "${aws_iam_role.k8s_node_role.name}",
   ]
 
   policy_arn = "${aws_iam_policy.sts_assume_role_policy.arn}"

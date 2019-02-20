@@ -123,3 +123,31 @@ resource "aws_iam_policy" "eks_authentication_policy" {
   description = ""
   policy      = "${file("aws_iam_policies/eks_authentication_policy.json")}"
 }
+
+resource "aws_iam_policy" "k8s_cluster" {
+  name        = "k8s-cluster-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/k8s_cluster_policy.json")}"
+}
+
+resource "aws_iam_policy" "ec2_network_access" {
+  name        = "ec2-network-access-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/ec2_network_access_policy.json")}"
+}
+
+resource "aws_iam_policy" "ecr_get" {
+  name        = "ecr-get-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/ecr_get_policy.json")}"
+}
+
+resource "aws_iam_policy" "s3_get" {
+  name        = "s3-get-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/s3_get_policy.json")}"
+}
