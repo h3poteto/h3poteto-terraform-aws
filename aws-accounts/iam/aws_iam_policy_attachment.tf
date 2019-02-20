@@ -174,66 +174,6 @@ resource "aws_iam_policy_attachment" "ecs_erlang_cluster" {
   policy_arn = "${aws_iam_policy.ecs_erlang_cluster_policy.arn}"
 }
 
-resource "aws_iam_policy_attachment" "eks_cluster" {
-  name = "eks-cluster"
-
-  roles = [
-    "${aws_iam_role.eks_master_role.name}",
-  ]
-
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
-}
-
-resource "aws_iam_policy_attachment" "eks_service" {
-  name = "eks-service"
-
-  roles = [
-    "${aws_iam_role.eks_master_role.name}",
-  ]
-
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
-}
-
-resource "aws_iam_policy_attachment" "eks_worker" {
-  name = "eks-worker"
-
-  roles = [
-    "${aws_iam_role.eks_node_role.name}",
-  ]
-
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
-}
-
-resource "aws_iam_policy_attachment" "eks_cni" {
-  name = "eks-cni"
-
-  roles = [
-    "${aws_iam_role.eks_node_role.name}",
-  ]
-
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-}
-
-resource "aws_iam_policy_attachment" "ecr_read_only" {
-  name = "ecr-read-only"
-
-  roles = [
-    "${aws_iam_role.eks_node_role.name}",
-  ]
-
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
-}
-
-resource "aws_iam_policy_attachment" "ec2_tag" {
-  name = "ec2-tag"
-
-  roles = [
-    "${aws_iam_role.eks_node_role.name}",
-  ]
-
-  policy_arn = "${aws_iam_policy.ec2_tag_policy.arn}"
-}
-
 resource "aws_iam_policy_attachment" "k8s_cluster" {
   name = "k8s-cluster"
 
@@ -278,7 +218,6 @@ resource "aws_iam_policy_attachment" "sts_assume_role" {
   name = "sts-assume-role"
 
   roles = [
-    "${aws_iam_role.eks_node_role.name}",
     "${aws_iam_role.k8s_node_role.name}",
   ]
 
@@ -303,14 +242,4 @@ resource "aws_iam_policy_attachment" "route53_change_record" {
   ]
 
   policy_arn = "${aws_iam_policy.route53_change_record_policy.arn}"
-}
-
-resource "aws_iam_policy_attachment" "eks_authentication" {
-  name = "eks-authentication"
-
-  users = [
-    "${aws_iam_user.circleci.name}",
-  ]
-
-  policy_arn = "${aws_iam_policy.eks_authentication_policy.arn}"
 }

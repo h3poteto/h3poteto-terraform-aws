@@ -41,23 +41,3 @@ output "masudastream_prd_ecs_task_role_arn" {
 output "pleroma_prd_ecs_task_role_arn" {
   value = "${aws_iam_role.pleroma_prd_ecs_task_role.arn}"
 }
-
-output "eks_master_role_arn" {
-  value = "${aws_iam_role.eks_master_role.arn}"
-}
-
-output "eks_node_role_arn" {
-  value = "${aws_iam_role.eks_node_role.arn}"
-}
-
-output "eks_node_instance_profile_arn" {
-  value = "${aws_iam_instance_profile.eks_node_profile.arn}"
-}
-
-output "eks_node_instance_profile_name" {
-  value = "${aws_iam_instance_profile.eks_node_profile.name}"
-}
-
-output "fascia_prd_pod_role_arn" {
-  value = "${aws_iam_role.fascia_prd_pod_role.arn}"
-}
