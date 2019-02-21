@@ -9,7 +9,7 @@ resource "aws_security_group" "master_instance" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["${var.ssh_from_cidr}"]
   }
 
   # Myself
@@ -22,9 +22,39 @@ resource "aws_security_group" "master_instance" {
 
   # For node
   ingress {
-    from_port = 0
-    to_port   = 0
-    protocol  = "-1"
+    from_port = 4003
+    to_port   = 65535
+    protocol  = "tcp"
+
+    security_groups = [
+      "${aws_security_group.node_instance.id}",
+    ]
+  }
+
+  ingress {
+    from_port = 2382
+    to_port   = 4000
+    protocol  = "tcp"
+
+    security_groups = [
+      "${aws_security_group.node_instance.id}",
+    ]
+  }
+
+  ingress {
+    from_port = 1
+    to_port   = 2379
+    protocol  = "tcp"
+
+    security_groups = [
+      "${aws_security_group.node_instance.id}",
+    ]
+  }
+
+  ingress {
+    from_port = 1
+    to_port   = 65535
+    protocol  = "udp"
 
     security_groups = [
       "${aws_security_group.node_instance.id}",
