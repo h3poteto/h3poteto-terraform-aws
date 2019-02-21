@@ -63,3 +63,9 @@ resource "aws_iam_role" "masudastream_prd_pod_role" {
   path               = "/"
   assume_role_policy = "${data.template_file.k8s_pod_assume_role_policy.rendered}"
 }
+
+resource "aws_iam_role" "kubernetes_admin_role" {
+  name               = "kubernetes-admin-role"
+  path               = "/"
+  assume_role_policy = "${data.template_file.account_assume_role_policy.rendered}"
+}
