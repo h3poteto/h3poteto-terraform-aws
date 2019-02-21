@@ -3,7 +3,7 @@ resource "aws_security_group_rule" "node_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["${var.ssh_from_cidr}"]
   security_group_id = "${aws_security_group.node_instance.id}"
 }
 
