@@ -1,9 +1,5 @@
-variable "masuda_stream_net_host_zone_id" {
-  default = "ZVTGI4QQD1RAE"
-}
-
-variable "masuda_stream_host_zone_id" {
-  default = "ZBMBD42O0B2R8"
+variable "whalebird_org_host_zone_id" {
+  default = "Z13GST5UDMNVY7"
 }
 
 variable "alb_dns_name" {
