@@ -3,7 +3,7 @@ variable "fascia_io_zone_id" {
 }
 
 variable "alb_dns_name" {
-  default = "9d7ac9a8-webpublic-albingr-4676-921123158.ap-northeast-1.elb.amazonaws.com"
+  default = "5736192a-webpublic-albingr-4676-1205031836.ap-northeast-1.elb.amazonaws.com"
 }
 
 variable "alb_hosted_zone_id" {
