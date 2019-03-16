@@ -118,7 +118,8 @@ resource "aws_security_group" "api_lb" {
   }
 
   tags {
-    Name = "${var.namespace}-api-lb-${var.env}"
+    Name    = "${var.namespace}-api-lb-${var.env}"
+    tfstate = "${var.tfstate}"
   }
 }
 
