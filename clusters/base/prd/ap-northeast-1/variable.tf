@@ -7,5 +7,5 @@ variable "env" {
 }
 
 variable "tfstate" {
-  default = "clusters/external/prd/ap-northeast-1/terraform.tfstate"
+  default = "clusters/base/prd/ap-northeast-1/terraform.tfstate"
 }
