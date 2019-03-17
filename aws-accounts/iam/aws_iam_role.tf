@@ -5,6 +5,15 @@ resource "aws_iam_role" "spot_fleet_role" {
 }
 
 /*
+ lambda
+*/
+resource "aws_iam_role" "asg_refresher_role" {
+  name               = "asg-refresher-role"
+  path               = "/"
+  assume_role_policy = "${file("aws_iam_role_policies/lambda_assume_role_policy.json")}"
+}
+
+/*
  kops
 */
 resource "aws_iam_role" "k8s_master_role" {

@@ -95,3 +95,24 @@ resource "aws_iam_policy" "s3_get" {
   description = ""
   policy      = "${file("aws_iam_policies/s3_get_policy.json")}"
 }
+
+resource "aws_iam_policy" "logs_full_access_policy" {
+  name        = "logs-full-access-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/logs_full_access_policy.json")}"
+}
+
+resource "aws_iam_policy" "asg_full_access_policy" {
+  name        = "asg-full-access-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/asg_full_access_policy.json")}"
+}
+
+resource "aws_iam_policy" "ec2_full_access_policy" {
+  name        = "ec2-full-access-policy"
+  path        = "/"
+  description = ""
+  policy      = "${file("aws_iam_policies/ec2_full_access_policy.json")}"
+}

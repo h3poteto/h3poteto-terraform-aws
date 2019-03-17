@@ -157,3 +157,33 @@ resource "aws_iam_policy_attachment" "route53_change_record" {
 
   policy_arn = "${aws_iam_policy.route53_change_record_policy.arn}"
 }
+
+resource "aws_iam_policy_attachment" "logs_full" {
+  name = "logs-full"
+
+  roles = [
+    "${aws_iam_role.asg_refresher_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.logs_full_access_policy.arn}"
+}
+
+resource "aws_iam_policy_attachment" "asg_full" {
+  name = "asg-full"
+
+  roles = [
+    "${aws_iam_role.asg_refresher_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.asg_full_access_policy.arn}"
+}
+
+resource "aws_iam_policy_attachment" "ec2_full" {
+  name = "ec2-full"
+
+  roles = [
+    "${aws_iam_role.asg_refresher_role.name}",
+  ]
+
+  policy_arn = "${aws_iam_policy.ec2_full_access_policy.arn}"
+}
