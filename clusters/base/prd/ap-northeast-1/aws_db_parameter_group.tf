@@ -47,4 +47,9 @@ resource "aws_db_parameter_group" "postgres" {
     value        = "GREATEST({DBInstanceClassMemory/12582880}, 400)"
     apply_method = "pending-reboot"
   }
+
+  parameter {
+    name  = "log_min_duration_statement"
+    value = "3000"
+  }
 }
