@@ -7,6 +7,15 @@ resource "aws_security_group_rule" "node_ssh" {
   security_group_id = "${aws_security_group.node_instance.id}"
 }
 
+resource "aws_security_group_rule" "node_port" {
+  type              = "ingress"
+  from_port         = 30001
+  to_port           = 30001
+  protocol          = "tcp"
+  cidr_blocks       = ["${var.ssh_from_cidr}"]
+  security_group_id = "${aws_security_group.node_instance.id}"
+}
+
 resource "aws_security_group_rule" "node_myself" {
   type              = "ingress"
   from_port         = 0
