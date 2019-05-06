@@ -38,14 +38,25 @@ resource "aws_db_parameter_group" "mysql57" {
   }
 }
 
-resource "aws_db_parameter_group" "postgres" {
-  name   = "${var.namespace}-db-${var.env}-postgres10"
-  family = "postgres10"
+resource "aws_db_parameter_group" "postgres11" {
+  name   = "${var.namespace}-db-${var.env}-postgres11"
+  family = "postgres11"
 
   parameter {
     name         = "max_connections"
-    value        = "GREATEST({DBInstanceClassMemory/12582880}, 400)"
+    value        = "50"
     apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "shared_buffers"
+    value        = "{DBInstanceClassMemory/32768}"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name  = "work_mem"
+    value = "8388608"
   }
 
   parameter {
