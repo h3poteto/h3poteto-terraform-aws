@@ -53,3 +53,30 @@ resource "aws_db_parameter_group" "postgres" {
     value = "3000"
   }
 }
+
+resource "aws_db_parameter_group" "postgres11" {
+  name   = "${var.namespace}-db-${var.env}-postgres11"
+  family = "postgres11"
+
+  parameter {
+    name         = "max_connections"
+    value        = "50"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name         = "shared_buffers"
+    value        = "{DBInstanceClassMemory/32768}"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name  = "work_mem"
+    value = "8388608"
+  }
+
+  parameter {
+    name  = "log_min_duration_statement"
+    value = "3000"
+  }
+}
