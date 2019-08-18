@@ -5,3 +5,4 @@ terraform {
     key    = "aws-accounts/ecr/ap-northeast-1/terraform.tfstate"
   }
 }
+
