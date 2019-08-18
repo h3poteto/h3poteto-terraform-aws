@@ -8,10 +8,11 @@ resource "aws_subnet" "public_subnet_1" {
   map_public_ip_on_launch = true
 
   tags {
-    Name    = "${var.service}-${var.env}-public-1"
-    service = "${var.service}"
-    env     = "${var.env}"
-    tfstate = "${var.tfstate}"
+    Name       = "${var.service}-${var.env}-public-1"
+    service    = "${var.service}"
+    env        = "${var.env}"
+    tfstate    = "${var.tfstate}"
+    SubnetType = "Public"
   }
 }
 
@@ -22,10 +23,11 @@ resource "aws_subnet" "public_subnet_2" {
   map_public_ip_on_launch = true
 
   tags {
-    Name    = "${var.service}-${var.env}-public-2"
-    service = "${var.service}"
-    env     = "${var.env}"
-    tfstate = "${var.tfstate}"
+    Name       = "${var.service}-${var.env}-public-2"
+    service    = "${var.service}"
+    env        = "${var.env}"
+    tfstate    = "${var.tfstate}"
+    SubnetType = "Public"
   }
 }
 
@@ -36,10 +38,11 @@ resource "aws_subnet" "public_subnet_3" {
   map_public_ip_on_launch = true
 
   tags {
-    Name    = "${var.service}-${var.env}-public-3"
-    service = "${var.service}"
-    env     = "${var.env}"
-    tfstate = "${var.tfstate}"
+    Name       = "${var.service}-${var.env}-public-3"
+    service    = "${var.service}"
+    env        = "${var.env}"
+    tfstate    = "${var.tfstate}"
+    SubnetType = "Public"
   }
 }
 

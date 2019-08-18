@@ -1,8 +1,8 @@
 provider "aws" {
-  version = "1.59"
+  version = "2.24.0"
   region  = "ap-northeast-1"
 }
 
 provider "template" {
-  version = "2.0"
+  version = "2.1.2"
 }
