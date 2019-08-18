@@ -3,8 +3,8 @@ resource "aws_security_group_rule" "node_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = ["${var.ssh_from_cidr}"]
-  security_group_id = "${aws_security_group.node_instance.id}"
+  cidr_blocks       = [var.ssh_from_cidr]
+  security_group_id = aws_security_group.node_instance.id
 }
 
 resource "aws_security_group_rule" "node_port" {
@@ -12,8 +12,8 @@ resource "aws_security_group_rule" "node_port" {
   from_port         = 30001
   to_port           = 30001
   protocol          = "tcp"
-  cidr_blocks       = ["${var.ssh_from_cidr}"]
-  security_group_id = "${aws_security_group.node_instance.id}"
+  cidr_blocks       = [var.ssh_from_cidr]
+  security_group_id = aws_security_group.node_instance.id
 }
 
 resource "aws_security_group_rule" "node_myself" {
@@ -22,7 +22,7 @@ resource "aws_security_group_rule" "node_myself" {
   to_port           = 0
   protocol          = "-1"
   self              = true
-  security_group_id = "${aws_security_group.node_instance.id}"
+  security_group_id = aws_security_group.node_instance.id
 }
 
 resource "aws_security_group_rule" "node_from_master" {
@@ -30,8 +30,8 @@ resource "aws_security_group_rule" "node_from_master" {
   from_port                = 0
   to_port                  = 0
   protocol                 = "-1"
-  source_security_group_id = "${aws_security_group.master_instance.id}"
-  security_group_id        = "${aws_security_group.node_instance.id}"
+  source_security_group_id = aws_security_group.master_instance.id
+  security_group_id        = aws_security_group.node_instance.id
 }
 
 resource "aws_security_group_rule" "node_from_service" {
@@ -39,8 +39,8 @@ resource "aws_security_group_rule" "node_from_service" {
   from_port                = 0
   to_port                  = 0
   protocol                 = "-1"
-  source_security_group_id = "${aws_security_group.service_lb.id}"
-  security_group_id        = "${aws_security_group.node_instance.id}"
+  source_security_group_id = aws_security_group.service_lb.id
+  security_group_id        = aws_security_group.node_instance.id
 }
 
 resource "aws_security_group_rule" "node_egress" {
@@ -49,5 +49,6 @@ resource "aws_security_group_rule" "node_egress" {
   to_port           = 0
   protocol          = "-1"
   cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = "${aws_security_group.node_instance.id}"
+  security_group_id = aws_security_group.node_instance.id
 }
+
