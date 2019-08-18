@@ -5,7 +5,7 @@ resource "aws_cloudfront_distribution" "masuda_stream_net" {
 
   origin {
     origin_id   = "origin-bucket-${aws_s3_bucket.redirect_masuda_stream.id}"
-    domain_name = "${aws_s3_bucket.redirect_masuda_stream.website_endpoint}"
+    domain_name = aws_s3_bucket.redirect_masuda_stream.website_endpoint
 
     custom_origin_config {
       origin_protocol_policy = "match-viewer"
@@ -44,10 +44,11 @@ resource "aws_cloudfront_distribution" "masuda_stream_net" {
   }
 
   viewer_certificate {
-    acm_certificate_arn      = "${var.masuda_stream_net_acm_arn}"
+    acm_certificate_arn      = var.masuda_stream_net_acm_arn
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1"
   }
 
   aliases = ["masuda-stream.net"]
 }
+
