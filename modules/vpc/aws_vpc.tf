@@ -4,7 +4,7 @@ resource "aws_vpc" "vpc" {
   enable_dns_support   = true
   instance_tenancy     = "default"
 
-  tags {
+  tags = {
     Name    = "${var.service}-${var.env}"
     service = "${var.service}"
     env     = "${var.env}"

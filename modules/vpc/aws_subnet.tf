@@ -3,8 +3,8 @@
 */
 resource "aws_subnet" "public_subnet_1" {
   vpc_id                  = "${aws_vpc.vpc.id}"
-  cidr_block              = "${lookup(var.public_subnet_cidr_block, "subnet_1")}"
-  availability_zone       = "${lookup(var.availability_zone, "subnet_1")}"
+  cidr_block              = "${var.public_subnet_1_cidr}"
+  availability_zone       = "${var.subnet_1_az}"
   map_public_ip_on_launch = true
 
   tags {
@@ -18,8 +18,8 @@ resource "aws_subnet" "public_subnet_1" {
 
 resource "aws_subnet" "public_subnet_2" {
   vpc_id                  = "${aws_vpc.vpc.id}"
-  cidr_block              = "${lookup(var.public_subnet_cidr_block, "subnet_2")}"
-  availability_zone       = "${lookup(var.availability_zone, "subnet_2")}"
+  cidr_block              = "${var.public_subnet_2_cidr}"
+  availability_zone       = "${var.subnet_2_az}"
   map_public_ip_on_launch = true
 
   tags {
@@ -33,8 +33,8 @@ resource "aws_subnet" "public_subnet_2" {
 
 resource "aws_subnet" "public_subnet_3" {
   vpc_id                  = "${aws_vpc.vpc.id}"
-  cidr_block              = "${lookup(var.public_subnet_cidr_block, "subnet_3")}"
-  availability_zone       = "${lookup(var.availability_zone, "subnet_3")}"
+  cidr_block              = "${var.public_subnet_3_cidr}"
+  availability_zone       = "${var.subnet_3_az}"
   map_public_ip_on_launch = true
 
   tags {
@@ -51,8 +51,8 @@ resource "aws_subnet" "public_subnet_3" {
 */
 resource "aws_subnet" "private_subnet_1" {
   vpc_id                  = "${aws_vpc.vpc.id}"
-  cidr_block              = "${lookup(var.private_subnet_cidr_block, "subnet_1")}"
-  availability_zone       = "${lookup(var.availability_zone, "subnet_1")}"
+  cidr_block              = "${var.private_subnet_1_cidr}"
+  availability_zone       = "${var.subnet_1_az}"
   map_public_ip_on_launch = false
 
   tags {
@@ -65,8 +65,8 @@ resource "aws_subnet" "private_subnet_1" {
 
 resource "aws_subnet" "private_subnet_2" {
   vpc_id                  = "${aws_vpc.vpc.id}"
-  cidr_block              = "${lookup(var.private_subnet_cidr_block, "subnet_2")}"
-  availability_zone       = "${lookup(var.availability_zone, "subnet_2")}"
+  cidr_block              = "${var.private_subnet_2_cidr}"
+  availability_zone       = "${var.subnet_2_az}"
   map_public_ip_on_launch = false
 
   tags {
@@ -79,8 +79,8 @@ resource "aws_subnet" "private_subnet_2" {
 
 resource "aws_subnet" "private_subnet_3" {
   vpc_id                  = "${aws_vpc.vpc.id}"
-  cidr_block              = "${lookup(var.private_subnet_cidr_block, "subnet_3")}"
-  availability_zone       = "${lookup(var.availability_zone, "subnet_3")}"
+  cidr_block              = "${var.private_subnet_3_az}"
+  availability_zone       = "${var.subnet_3_az}"
   map_public_ip_on_launch = false
 
   tags {

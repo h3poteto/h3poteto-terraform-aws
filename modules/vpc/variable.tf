@@ -6,26 +6,22 @@ variable "tfstate" {}
 
 variable "vpc_cidr_block" {}
 
-variable "public_subnet_cidr_block" {
-  default {
-    subnet_1 = ""
-    subnet_2 = ""
-    subnet_3 = ""
-  }
+variable "public_subnet_1_cidr" {}
+variable "public_subnet_2_cidr" {}
+variable "public_subnet_3_cidr" {}
+
+variable "private_subnet_1_cidr" {}
+variable "private_subnet_2_cidr" {}
+variable "private_subnet_3_cidr" {}
+
+variable "subnet_1_az" {
+  default = "ap-northeast-1a"
 }
 
-variable "private_subnet_cidr_block" {
-  default {
-    subnet_1 = ""
-    subnet_2 = ""
-    subnet_3 = ""
-  }
+variable "subnet_2_az" {
+  default = "ap-northeast-1c"
 }
 
-variable "availability_zone" {
-  default {
-    subnet_1 = "ap-northeast-1a"
-    subnet_2 = "ap-northeast-1c"
-    subnet_3 = "ap-northeast-1d"
-  }
+variable "subnet_3_az" {
+  default = "ap-northeast-1d"
 }
