@@ -9,3 +9,4 @@ variable "alb_dns_name" {
 variable "alb_hosted_zone_id" {
   default = "Z14GRHDCWA56QT"
 }
+
