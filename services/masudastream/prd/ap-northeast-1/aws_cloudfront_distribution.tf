@@ -30,20 +30,20 @@ resource "aws_cloudfront_distribution" "masuda_stream_net" {
 
     viewer_protocol_policy = "allow-all"
     min_ttl                = "0"
-    default_ttl            = "300"                                                      //3600
-    max_ttl                = "1200"                                                     //86400
+    default_ttl            = "300"  //3600
+    max_ttl                = "1200" //86400
     target_origin_id       = "origin-bucket-${aws_s3_bucket.redirect_masuda_stream.id}"
 
     compress = true
   }
 
-  "restrictions" {
-    "geo_restriction" {
+  restrictions {
+    geo_restriction {
       restriction_type = "none"
     }
   }
 
-  "viewer_certificate" {
+  viewer_certificate {
     acm_certificate_arn      = "${var.masuda_stream_net_acm_arn}"
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1"
