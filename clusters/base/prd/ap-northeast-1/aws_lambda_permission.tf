@@ -3,7 +3,7 @@ resource "aws_lambda_permission" "nodes" {
   action        = "lambda:InvokeFunction"
   function_name = "asg-refresher_terminate"
   principal     = "events.amazonaws.com"
-  source_arn    = "${aws_cloudwatch_event_rule.refresh_nodes.arn}"
+  source_arn    = aws_cloudwatch_event_rule.refresh_nodes.arn
 }
 
 resource "aws_lambda_permission" "master_a" {
@@ -11,7 +11,7 @@ resource "aws_lambda_permission" "master_a" {
   action        = "lambda:InvokeFunction"
   function_name = "asg-refresher_terminate"
   principal     = "events.amazonaws.com"
-  source_arn    = "${aws_cloudwatch_event_rule.refresh_master_a.arn}"
+  source_arn    = aws_cloudwatch_event_rule.refresh_master_a.arn
 }
 
 resource "aws_lambda_permission" "master_c" {
@@ -19,7 +19,7 @@ resource "aws_lambda_permission" "master_c" {
   action        = "lambda:InvokeFunction"
   function_name = "asg-refresher_terminate"
   principal     = "events.amazonaws.com"
-  source_arn    = "${aws_cloudwatch_event_rule.refresh_master_c.arn}"
+  source_arn    = aws_cloudwatch_event_rule.refresh_master_c.arn
 }
 
 resource "aws_lambda_permission" "master_d" {
@@ -27,5 +27,6 @@ resource "aws_lambda_permission" "master_d" {
   action        = "lambda:InvokeFunction"
   function_name = "asg-refresher_terminate"
   principal     = "events.amazonaws.com"
-  source_arn    = "${aws_cloudwatch_event_rule.refresh_master_d.arn}"
+  source_arn    = aws_cloudwatch_event_rule.refresh_master_d.arn
 }
+

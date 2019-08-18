@@ -29,3 +29,4 @@ resource "aws_ecr_repository" "pleroma_phoenix" {
 resource "aws_ecr_repository" "pleroma_nginx" {
   name = "h3poteto/pleroma/nginx"
 }
+

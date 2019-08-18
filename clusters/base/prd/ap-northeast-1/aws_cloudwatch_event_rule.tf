@@ -21,3 +21,4 @@ resource "aws_cloudwatch_event_rule" "refresh_master_d" {
   description         = "Refresh AutoScalingGroup instances in master role"
   schedule_expression = "cron(0 20 ? * SAT *)"
 }
+
