@@ -1,4 +1,5 @@
 variable "developers" {
-  type    = "list"
+  type    = list(string)
   default = ["AkiraFukushima"]
 }
+
