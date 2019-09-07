@@ -128,11 +128,23 @@ resource "aws_iam_policy_attachment" "s3_get" {
   policy_arn = aws_iam_policy.s3_get.arn
 }
 
+
+resource "aws_iam_policy_attachment" "sts_assume_for_kiam_role" {
+  name = "sts-assume-role-for-kiam-role"
+
+  roles = [
+    aws_iam_role.k8s_master_role.name
+  ]
+
+  policy_arn = aws_iam_policy.sts_assume_for_kiam_role_policy.arn
+}
+
 resource "aws_iam_policy_attachment" "sts_assume_role" {
   name = "sts-assume-role"
 
   roles = [
     aws_iam_role.k8s_node_role.name,
+    aws_iam_role.kiam_master_role.name
   ]
 
   policy_arn = aws_iam_policy.sts_assume_role_policy.arn

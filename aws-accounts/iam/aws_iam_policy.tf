@@ -117,3 +117,10 @@ resource "aws_iam_policy" "ec2_full_access_policy" {
   policy      = file("aws_iam_policies/ec2_full_access_policy.json")
 }
 
+
+resource "aws_iam_policy" "sts_assume_for_kiam_role_policy" {
+  name        = "sts-assume-for-kiam-role-policy"
+  path        = "/"
+  description = ""
+  policy      = data.template_file.kiam_role_assume_role_policy.rendered
+}
