@@ -4,8 +4,7 @@ data "template_file" "k8s_pod_assume_role_policy" {
   )
 
   vars = {
-    k8s_node_instance_role_arn = aws_iam_role.k8s_node_role.arn
-    kiam_master_role_arn       = aws_iam_role.kiam_master_role.arn
+    kiam_master_role_arn = aws_iam_role.kiam_master_role.arn
   }
 }
 

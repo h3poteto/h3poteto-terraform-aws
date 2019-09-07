@@ -143,7 +143,6 @@ resource "aws_iam_policy_attachment" "sts_assume_role" {
   name = "sts-assume-role"
 
   roles = [
-    aws_iam_role.k8s_node_role.name,
     aws_iam_role.kiam_master_role.name
   ]
 
