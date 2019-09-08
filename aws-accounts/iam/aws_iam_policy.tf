@@ -47,11 +47,11 @@ resource "aws_iam_policy" "ec2_tag_policy" {
   policy      = file("aws_iam_policies/ec2_tag_policy.json")
 }
 
-resource "aws_iam_policy" "sts_assume_role_policy" {
-  name        = "sts-assume-role-policy"
+resource "aws_iam_policy" "sts_assume_role_for_all_policy" {
+  name        = "sts-assume-role-for-all-policy"
   path        = "/"
   description = ""
-  policy      = file("aws_iam_policies/sts_assume_role_policy.json")
+  policy      = file("aws_iam_policies/sts_assume_role_for_all_policy.json")
 }
 
 resource "aws_iam_policy" "alb_ingress_policy" {
@@ -59,13 +59,6 @@ resource "aws_iam_policy" "alb_ingress_policy" {
   path        = "/"
   description = ""
   policy      = file("aws_iam_policies/alb_ingress_policy.json")
-}
-
-resource "aws_iam_policy" "route53_change_record_policy" {
-  name        = "route53-change-record-policy"
-  path        = "/"
-  description = ""
-  policy      = file("aws_iam_policies/route53_change_record_policy.json")
 }
 
 resource "aws_iam_policy" "k8s_cluster" {
@@ -122,5 +115,5 @@ resource "aws_iam_policy" "sts_assume_for_kiam_role_policy" {
   name        = "sts-assume-for-kiam-role-policy"
   path        = "/"
   description = ""
-  policy      = data.template_file.kiam_role_assume_role_policy.rendered
+  policy      = data.template_file.sts_assume_for_kiam_role_policy.rendered
 }
