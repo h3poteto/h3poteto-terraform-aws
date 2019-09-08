@@ -47,11 +47,11 @@ resource "aws_iam_policy" "ec2_tag_policy" {
   policy      = file("aws_iam_policies/ec2_tag_policy.json")
 }
 
-resource "aws_iam_policy" "sts_assume_role_policy" {
-  name        = "sts-assume-role-policy"
+resource "aws_iam_policy" "sts_assume_role_for_all_policy" {
+  name        = "sts-assume-role-for-all-policy"
   path        = "/"
   description = ""
-  policy      = file("aws_iam_policies/sts_assume_role_policy.json")
+  policy      = file("aws_iam_policies/sts_assume_role_for_all_policy.json")
 }
 
 resource "aws_iam_policy" "alb_ingress_policy" {

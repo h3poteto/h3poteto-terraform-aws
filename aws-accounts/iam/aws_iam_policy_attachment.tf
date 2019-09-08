@@ -139,14 +139,14 @@ resource "aws_iam_policy_attachment" "sts_assume_for_kiam_role" {
   policy_arn = aws_iam_policy.sts_assume_for_kiam_role_policy.arn
 }
 
-resource "aws_iam_policy_attachment" "sts_assume_role" {
-  name = "sts-assume-role"
+resource "aws_iam_policy_attachment" "sts_assume_role_for_all" {
+  name = "sts-assume-role-for-all"
 
   roles = [
     aws_iam_role.kiam_master_role.name
   ]
 
-  policy_arn = aws_iam_policy.sts_assume_role_policy.arn
+  policy_arn = aws_iam_policy.sts_assume_role_for_all_policy.arn
 }
 
 resource "aws_iam_policy_attachment" "alb_ingress" {
