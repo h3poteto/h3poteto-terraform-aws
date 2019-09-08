@@ -159,16 +159,6 @@ resource "aws_iam_policy_attachment" "alb_ingress" {
   policy_arn = aws_iam_policy.alb_ingress_policy.arn
 }
 
-resource "aws_iam_policy_attachment" "route53_change_record" {
-  name = "route53-change-record"
-
-  roles = [
-    aws_iam_role.external_dns_role.name,
-  ]
-
-  policy_arn = aws_iam_policy.route53_change_record_policy.arn
-}
-
 resource "aws_iam_policy_attachment" "logs_full" {
   name = "logs-full"
 
