@@ -4,10 +4,9 @@
     {
       "Effect":"Allow",
       "Principal": {
-        "AWS": "${account_id}"
+        "AWS": "${arn}"
       },
-      "Action": "sts:AssumeRole",
-      "Condition": {}
+      "Action": "sts:AssumeRole"
     }
   ]
 }

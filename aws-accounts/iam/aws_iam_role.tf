@@ -29,6 +29,15 @@ resource "aws_iam_role" "k8s_node_role" {
 }
 
 /*
+ kiam
+*/
+resource "aws_iam_role" "kiam_master_role" {
+  name               = "kiam-master-role"
+  path               = "/"
+  assume_role_policy = data.template_file.k8s_master_assume_role_policy.rendered
+}
+
+/*
  Kubernetes Pods
 */
 resource "aws_iam_role" "fascia_prd_pod_role" {
