@@ -10,7 +10,7 @@ data "template_file" "k8s_pod_assume_role_policy" {
 
 data "template_file" "account_assume_role_policy" {
   template = file(
-    "${path.module}/aws_iam_role_policies/sts_assume_role_policy.json.tpl",
+    "${path.module}/aws_iam_role_policies/arn_assume_role_policy.json.tpl",
   )
 
   vars = {
@@ -20,7 +20,7 @@ data "template_file" "account_assume_role_policy" {
 
 data "template_file" "k8s_master_assume_role_policy" {
   template = file(
-    "${path.module}/aws_iam_role_policies/sts_assume_role_policy.json.tpl"
+    "${path.module}/aws_iam_role_policies/arn_assume_role_policy.json.tpl"
   )
 
   vars = {
