@@ -61,7 +61,7 @@ resource "aws_security_group" "master_instance" {
     ]
   }
 
-  # For API ELB
+  # For API ELB and my home
   ingress {
     from_port = 443
     to_port   = 443
@@ -70,6 +70,7 @@ resource "aws_security_group" "master_instance" {
     security_groups = [
       aws_security_group.api_lb.id,
     ]
+    cidr_blocks = [var.ssh_from_cidr]
   }
 
   egress {
