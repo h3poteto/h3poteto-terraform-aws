@@ -1,3 +1,15 @@
+variable "service" {
+  default = "pleroma"
+}
+
+variable "env" {
+  default = "prd"
+}
+
+variable "tfstate" {
+  default = "services/pleroma/prd/ap-northeast-1/terraform.tfstate"
+}
+
 variable "pleroma_io_host_zone_id" {
   default = "Z3V8HXIOT2HTUD"
 }
