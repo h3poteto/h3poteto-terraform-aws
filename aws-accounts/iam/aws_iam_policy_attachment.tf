@@ -13,6 +13,7 @@ resource "aws_iam_policy_attachment" "kms_production" {
   roles = [
     aws_iam_role.fascia_prd_pod_role.name,
     aws_iam_role.whalebirdorg_prd_pod_role.name,
+    aws_iam_role.whalebirdsocial_prd_pod_role.name,
     aws_iam_role.seiyuwatch_prd_pod_role.name,
     aws_iam_role.masudastream_prd_pod_role.name,
     aws_iam_role.pleromaio_prd_pod_role.name,
@@ -30,6 +31,7 @@ resource "aws_iam_policy_attachment" "ssm_get_parameter" {
   roles = [
     aws_iam_role.fascia_prd_pod_role.name,
     aws_iam_role.whalebirdorg_prd_pod_role.name,
+    aws_iam_role.whalebirdsocial_prd_pod_role.name,
     aws_iam_role.seiyuwatch_prd_pod_role.name,
     aws_iam_role.masudastream_prd_pod_role.name,
     aws_iam_role.pleromaio_prd_pod_role.name,

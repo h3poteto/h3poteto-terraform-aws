@@ -58,6 +58,12 @@ resource "aws_iam_role" "whalebirdorg_prd_pod_role" {
   assume_role_policy = data.template_file.k8s_pod_assume_role_policy.rendered
 }
 
+resource "aws_iam_role" "whalebirdsocial_prd_pod_role" {
+  name               = "whalebirdsocial-prd-pod-role"
+  path               = "/"
+  assume_role_policy = data.template_file.k8s_pod_assume_role_policy.rendered
+}
+
 resource "aws_iam_role" "pleromaio_prd_pod_role" {
   name               = "pleromaio-prd-pod-role"
   path               = "/"
