@@ -1,17 +1,15 @@
 resource "aws_cloudfront_distribution" "maintenance" {
-  enabled      = true
-  price_class  = "PriceClass_All"
-  http_version = "http2"
+  enabled             = true
+  price_class         = "PriceClass_All"
+  http_version        = "http2"
+  default_root_object = "error_page.html"
 
   origin {
-    origin_id   = "origin-bucket-${aws_s3_bucket.maintenance.id}"
-    domain_name = aws_s3_bucket.maintenance.website_endpoint
+    origin_id   = "S3-${aws_s3_bucket.maintenance.id}"
+    domain_name = aws_s3_bucket.maintenance.bucket_domain_name
 
-    custom_origin_config {
-      origin_protocol_policy = "match-viewer"
-      http_port              = "80"
-      https_port             = "443"
-      origin_ssl_protocols   = ["TLSv1"]
+    s3_origin_config {
+      origin_access_identity = aws_cloudfront_origin_access_identity.maintenance.cloudfront_access_identity_path
     }
   }
 
@@ -32,7 +30,7 @@ resource "aws_cloudfront_distribution" "maintenance" {
     min_ttl                = "0"
     default_ttl            = "300"  //3600
     max_ttl                = "1200" //86400
-    target_origin_id       = "origin-bucket-${aws_s3_bucket.maintenance.id}"
+    target_origin_id       = "S3-${aws_s3_bucket.maintenance.id}"
 
     compress = true
   }
@@ -55,7 +53,14 @@ resource "aws_cloudfront_distribution" "maintenance" {
     error_caching_min_ttl = 300
     error_code            = 404
     response_code         = 503
-    response_page_path    = "/maintenance.html"
+    response_page_path    = "/error_page.html"
+  }
+
+  custom_error_response {
+    error_caching_min_ttl = 300
+    error_code            = 403
+    response_code         = 503
+    response_page_path    = "/error_page.html"
   }
 }
 
