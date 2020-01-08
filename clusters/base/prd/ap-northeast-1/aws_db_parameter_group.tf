@@ -44,13 +44,13 @@ resource "aws_db_parameter_group" "postgres11" {
 
   parameter {
     name         = "max_connections"
-    value        = "50"
+    value        = "100"
     apply_method = "pending-reboot"
   }
 
   parameter {
     name         = "shared_buffers"
-    value        = "{DBInstanceClassMemory/32768}"
+    value        = "{dbinstanceclassmemory/32768}"
     apply_method = "pending-reboot"
   }
 
