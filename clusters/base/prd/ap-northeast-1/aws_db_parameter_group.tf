@@ -61,7 +61,7 @@ resource "aws_db_parameter_group" "postgres11" {
 
   parameter {
     name  = "log_min_duration_statement"
-    value = "3000"
+    value = "10000"
   }
 }
 
