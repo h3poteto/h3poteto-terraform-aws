@@ -97,7 +97,7 @@ resource "aws_db_parameter_group" "postgres11" {
 
   parameter {
     name         = "autovacuum_work_mem"
-    value        = "131072"
+    value        = "GREATEST({DBInstanceClassMemory*1024/63963136},131072)"
     apply_method = "immediate"
   }
 }
