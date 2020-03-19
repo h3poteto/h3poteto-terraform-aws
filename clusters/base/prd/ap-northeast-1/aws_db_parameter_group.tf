@@ -76,7 +76,12 @@ resource "aws_db_parameter_group" "postgres11" {
 
   parameter {
     name  = "autovacuum_analyze_scale_factor"
-    value = "0.01"
+    value = "0.005"
+  }
+
+  parameter {
+    name  = "autovacuum_analyze_threshold"
+    value = "50"
   }
 
   parameter {
@@ -92,7 +97,7 @@ resource "aws_db_parameter_group" "postgres11" {
 
   parameter {
     name         = "autovacuum_work_mem"
-    value        = "greatest({dbinstanceclassmemory*1024/63963136},65536)"
+    value        = "131072"
     apply_method = "immediate"
   }
 }
