@@ -21,8 +21,7 @@ resource "aws_route53_record" "web" {
     evaluate_target_health = true
   }
 
-  health_check_id = aws_route53_health_check.web.id
-  set_identifier  = "web-primary"
+  set_identifier = "web-primary"
 
   failover_routing_policy {
     type = "PRIMARY"

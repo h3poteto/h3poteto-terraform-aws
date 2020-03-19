@@ -63,5 +63,36 @@ resource "aws_db_parameter_group" "postgres11" {
     name  = "log_min_duration_statement"
     value = "10000"
   }
-}
 
+  parameter {
+    name  = "rds.force_autovacuum_logging_level"
+    value = "log"
+  }
+
+  parameter {
+    name  = "log_autovacuum_min_duration"
+    value = "5000"
+  }
+
+  parameter {
+    name  = "autovacuum_analyze_scale_factor"
+    value = "0.01"
+  }
+
+  parameter {
+    name  = "autovacuum_vacuum_scale_factor"
+    value = "0.02"
+  }
+
+  parameter {
+    name         = "autovacuum"
+    value        = "1"
+    apply_method = "immediate"
+  }
+
+  parameter {
+    name         = "autovacuum_work_mem"
+    value        = "greatest({dbinstanceclassmemory*1024/63963136},65536)"
+    apply_method = "immediate"
+  }
+}
