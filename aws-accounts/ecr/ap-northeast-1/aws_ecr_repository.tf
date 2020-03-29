@@ -34,3 +34,6 @@ resource "aws_ecr_repository" "pleroma_nginx" {
   name = "h3poteto/pleroma/nginx"
 }
 
+resource "aws_ecr_repository" "pod_identity_webhook" {
+  name = "eks/pod-identity-webhook"
+}

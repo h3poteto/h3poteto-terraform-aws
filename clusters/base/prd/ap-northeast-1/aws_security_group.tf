@@ -61,7 +61,7 @@ resource "aws_security_group" "master_instance" {
     ]
   }
 
-  # For API ELB and my home
+  # For API server. It is accepted my home, and CircleCI to deploy.
   ingress {
     from_port = 443
     to_port   = 443
@@ -70,7 +70,7 @@ resource "aws_security_group" "master_instance" {
     security_groups = [
       aws_security_group.api_lb.id,
     ]
-    cidr_blocks = [var.ssh_from_cidr]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {

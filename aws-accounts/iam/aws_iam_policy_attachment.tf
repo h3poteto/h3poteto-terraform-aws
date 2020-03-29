@@ -11,44 +11,14 @@ resource "aws_iam_policy_attachment" "kms_production" {
   ]
 
   roles = [
-    aws_iam_role.fascia_prd_pod_role.name,
-    aws_iam_role.whalebirdorg_prd_pod_role.name,
-    aws_iam_role.whalebirdsocial_prd_pod_role.name,
     aws_iam_role.seiyuwatch_prd_pod_role.name,
-    aws_iam_role.masudastream_prd_pod_role.name,
     aws_iam_role.pleromaio_prd_pod_role.name,
+    aws_iam_role.kms_secrets_role.name,
   ]
 
   policy_arn = module.h3poteto_production_kms.iam_policy_arn
 }
 
-/*
- SSM Parameter Store
-*/
-resource "aws_iam_policy_attachment" "ssm_get_parameter" {
-  name = "ssm"
-
-  roles = [
-    aws_iam_role.fascia_prd_pod_role.name,
-    aws_iam_role.whalebirdorg_prd_pod_role.name,
-    aws_iam_role.whalebirdsocial_prd_pod_role.name,
-    aws_iam_role.seiyuwatch_prd_pod_role.name,
-    aws_iam_role.masudastream_prd_pod_role.name,
-    aws_iam_role.pleromaio_prd_pod_role.name,
-  ]
-
-  policy_arn = aws_iam_policy.ssm_get_parameter_policy.arn
-}
-
-resource "aws_iam_policy_attachment" "ses_sending" {
-  name = "ses-sending"
-
-  roles = [
-    aws_iam_role.fascia_prd_pod_role.name,
-  ]
-
-  policy_arn = aws_iam_policy.ses_sending_access.arn
-}
 
 resource "aws_iam_policy_attachment" "s3_seiyu_watch" {
   name = "s3-seiyu-watch"

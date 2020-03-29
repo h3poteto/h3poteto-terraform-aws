@@ -8,3 +8,12 @@ data "terraform_remote_state" "aws_vpc_tokyo" {
   }
 }
 
+data "terraform_remote_state" "us" {
+  backend = "s3"
+
+  config = {
+    bucket = "h3poteto-terraform-state"
+    key    = "clusters/base/prd/us-east-1/terraform.tfstate"
+    region = "ap-northeast-1"
+  }
+}
