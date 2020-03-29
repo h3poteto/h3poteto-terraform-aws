@@ -1,10 +1,10 @@
-data "template_file" "k8s_pod_assume_role_policy" {
+data "template_file" "kiam_assume_role_policy" {
   template = file(
     "${path.module}/aws_iam_role_policies/k8s_pod_assume_role_policy.json.tpl",
   )
 
   vars = {
-    kiam_master_role_arn = aws_iam_role.kiam_master_role.arn
+    permitted_role_arn = aws_iam_role.kiam_master_role.arn
   }
 }
 
@@ -47,5 +47,15 @@ data "template_file" "irsa_assume_role_policy" {
     provider_arn   = "arn:aws:iam::564677439943:oidc-provider/oidc-b95dd51e-bb36-c1ce-3bfb-53a86f33b827.s3.amazonaws.com"
     issue_hostpath = "oidc-b95dd51e-bb36-c1ce-3bfb-53a86f33b827.s3.amazonaws.com"
     prefix         = ""
+  }
+}
+
+data "template_file" "kube2iam_assume_role_policy" {
+  template = file(
+    "${path.module}/aws_iam_role_policies/k8s_pod_assume_role_policy.json.tpl",
+  )
+
+  vars = {
+    permitted_role_arn = aws_iam_role.k8s_node_role.arn
   }
 }

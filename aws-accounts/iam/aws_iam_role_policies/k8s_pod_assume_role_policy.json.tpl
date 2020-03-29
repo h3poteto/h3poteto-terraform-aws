@@ -13,7 +13,7 @@
       "Sid": "",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "${kiam_master_role_arn}"
+        "AWS": "${permitted_role_arn}"
       },
       "Action": "sts:AssumeRole"
     }
