@@ -3,7 +3,7 @@ variable "h3poteto_dev_host_zone_id" {
 }
 
 variable "alb_dns_name" {
-  default = "5736192a-webpublic-albingr-4676-1227616822.ap-northeast-1.elb.amazonaws.com"
+  default = "a5a91729-webpublic-albingr-4676-26761550.ap-northeast-1.elb.amazonaws.com"
 }
 
 variable "alb_hosted_zone_id" {
