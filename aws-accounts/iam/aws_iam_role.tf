@@ -66,7 +66,7 @@ resource "aws_iam_role" "kubernetes_admin_role" {
 resource "aws_iam_role" "pleromaio_prd_pod_role" {
   name               = "pleromaio-prd-pod-role"
   path               = "/"
-  assume_role_policy = data.template_file.kube2iam_assume_role_policy.rendered
+  assume_role_policy = data.template_file.irsa_assume_role_policy.rendered
 }
 
 resource "aws_iam_role" "seiyuwatch_prd_pod_role" {
