@@ -161,3 +161,13 @@ resource "aws_iam_policy_attachment" "ec2_full" {
   policy_arn = aws_iam_policy.ec2_full_access_policy.arn
 }
 
+
+resource "aws_iam_policy_attachment" "cloudwatch_read_only" {
+  name = "cloudwatch-read-only"
+
+  roles = [
+    aws_iam_role.chatbot_slack_notify_role.name
+  ]
+
+  policy_arn = aws_iam_policy.cloudwatch_read_only_policy.arn
+}

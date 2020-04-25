@@ -4,6 +4,12 @@ resource "aws_iam_role" "spot_fleet_role" {
   assume_role_policy = file("aws_iam_role_policies/spot_fleet_assume_role_policy.json")
 }
 
+resource "aws_iam_role" "chatbot_slack_notify_role" {
+  name               = "chatbot-slack-notify-role"
+  path               = "/"
+  assume_role_policy = file("aws_iam_role_policies/chatbot_assume_role_policy.json")
+}
+
 /*
  lambda
 */
