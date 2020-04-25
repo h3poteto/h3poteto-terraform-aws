@@ -117,3 +117,10 @@ resource "aws_iam_policy" "sts_assume_for_kiam_role_policy" {
   description = ""
   policy      = data.template_file.sts_assume_for_kiam_role_policy.rendered
 }
+
+resource "aws_iam_policy" "cloudwatch_read_only_policy" {
+  name        = "cloudwatch-read-only-policy"
+  path        = "/"
+  description = ""
+  policy      = file("aws_iam_policies/cloudwatch_read_only_policy.json")
+}
