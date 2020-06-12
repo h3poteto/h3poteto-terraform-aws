@@ -80,3 +80,12 @@ resource "aws_iam_role" "seiyuwatch_prd_pod_role" {
   path               = "/"
   assume_role_policy = data.template_file.irsa_assume_role_policy.rendered
 }
+
+/*
+ Datadog
+*/
+resource "aws_iam_role" "datadog_integration_role" {
+  name               = "datadog-integration-role"
+  path               = "/"
+  assume_role_policy = file("aws_iam_role_policies/datadog_external_account_policy.json")
+}
