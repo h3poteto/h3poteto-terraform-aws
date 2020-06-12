@@ -171,3 +171,13 @@ resource "aws_iam_policy_attachment" "cloudwatch_read_only" {
 
   policy_arn = aws_iam_policy.cloudwatch_read_only_policy.arn
 }
+
+resource "aws_iam_policy_attachment" "all_service_read_only" {
+  name = "all-service-read-only"
+
+  roles = [
+    aws_iam_role.datadog_integration_role.name
+  ]
+
+  policy_arn = aws_iam_policy.all_service_read_only_policy.arn
+}
