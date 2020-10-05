@@ -25,3 +25,5 @@ variable "subnet_2_az" {
 variable "subnet_3_az" {
   default = "ap-northeast-1d"
 }
+
+variable "cluster_name" {}

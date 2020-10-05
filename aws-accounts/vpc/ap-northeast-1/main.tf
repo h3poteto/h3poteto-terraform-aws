@@ -1,6 +1,6 @@
 module "vpc" {
   source  = "../../../modules/vpc"
-  service = var.service
+  service = "h3poteto"
   env     = "prd"
   tfstate = var.tfstate
 
@@ -20,5 +20,5 @@ module "vpc" {
   subnet_2_az = "ap-northeast-1c"
   subnet_3_az = "ap-northeast-1d"
 
+  cluster_name = "external-prd-20200329.k8s.h3poteto.dev"
 }
-
