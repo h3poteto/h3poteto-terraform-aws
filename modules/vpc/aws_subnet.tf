@@ -8,13 +8,13 @@ resource "aws_subnet" "public_subnet_1" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name                                                  = "${var.service}-${var.env}-public-1"
-    service                                               = var.service
-    env                                                   = var.env
-    tfstate                                               = var.tfstate
-    SubnetType                                            = "Public"
-    "kubernetes.io/cluster/external-prd.k8s.h3poteto.dev" = "shared"
-    "kubernetes.io/role/elb"                              = "1"
+    Name                                        = "${var.service}-${var.env}-public-1"
+    service                                     = var.service
+    env                                         = var.env
+    tfstate                                     = var.tfstate
+    SubnetType                                  = "Public"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+    "kubernetes.io/role/elb"                    = "1"
   }
 }
 
@@ -25,13 +25,13 @@ resource "aws_subnet" "public_subnet_2" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name                                                  = "${var.service}-${var.env}-public-2"
-    service                                               = var.service
-    env                                                   = var.env
-    tfstate                                               = var.tfstate
-    SubnetType                                            = "Public"
-    "kubernetes.io/cluster/external-prd.k8s.h3poteto.dev" = "shared"
-    "kubernetes.io/role/elb"                              = "1"
+    Name                                        = "${var.service}-${var.env}-public-2"
+    service                                     = var.service
+    env                                         = var.env
+    tfstate                                     = var.tfstate
+    SubnetType                                  = "Public"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+    "kubernetes.io/role/elb"                    = "1"
   }
 }
 
@@ -42,13 +42,13 @@ resource "aws_subnet" "public_subnet_3" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name                                                  = "${var.service}-${var.env}-public-3"
-    service                                               = var.service
-    env                                                   = var.env
-    tfstate                                               = var.tfstate
-    SubnetType                                            = "Public"
-    "kubernetes.io/cluster/external-prd.k8s.h3poteto.dev" = "shared"
-    "kubernetes.io/role/elb"                              = "1"
+    Name                                        = "${var.service}-${var.env}-public-3"
+    service                                     = var.service
+    env                                         = var.env
+    tfstate                                     = var.tfstate
+    SubnetType                                  = "Public"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+    "kubernetes.io/role/elb"                    = "1"
   }
 }
 
