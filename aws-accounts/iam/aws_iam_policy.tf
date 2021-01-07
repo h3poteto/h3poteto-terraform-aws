@@ -131,3 +131,10 @@ resource "aws_iam_policy" "all_service_read_only_policy" {
   description = ""
   policy      = file("aws_iam_policies/all_service_read_only_policy.json")
 }
+
+resource "aws_iam_policy" "cluster_autoscaler_policy" {
+  name        = "cluster-autoscaler-policy"
+  path        = "/"
+  description = ""
+  policy      = file("aws_iam_policies/cluster_autoscaler_policy.json")
+}
