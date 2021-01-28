@@ -3,3 +3,7 @@ resource "aws_iam_user" "circleci" {
   path = "/"
 }
 
+resource "aws_iam_user" "github_actions" {
+  name = "GitHubActions"
+  path = "/"
+}
