@@ -19,6 +19,22 @@ resource "aws_iam_policy_attachment" "kms_production" {
   policy_arn = module.h3poteto_production_kms.iam_policy_arn
 }
 
+resource "aws_iam_policy_attachment" "kms_ci" {
+  name = "kms-ci"
+
+  users = [
+    aws_iam_user.github_actions.name,
+  ]
+
+  groups = [
+    aws_iam_group.h3poteto_developers.name,
+  ]
+
+  roles = []
+
+  policy_arn = module.ci_kms.iam_policy_arn
+}
+
 
 resource "aws_iam_policy_attachment" "s3_seiyu_watch" {
   name = "s3-seiyu-watch"
