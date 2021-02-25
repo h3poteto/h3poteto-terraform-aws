@@ -76,44 +76,24 @@ resource "aws_iam_policy_attachment" "ecr_h3potet" {
   policy_arn = aws_iam_policy.ecr_h3poteto_access.arn
 }
 
-resource "aws_iam_policy_attachment" "k8s_cluster" {
-  name = "k8s-cluster"
+resource "aws_iam_policy_attachment" "k8s_master" {
+  name = "k8s-master"
 
   roles = [
     aws_iam_role.k8s_master_role.name,
   ]
 
-  policy_arn = aws_iam_policy.k8s_cluster.arn
+  policy_arn = aws_iam_policy.k8s_master.arn
 }
 
-resource "aws_iam_policy_attachment" "ec2_network_access" {
-  name = "ec2-network-access"
+resource "aws_iam_policy_attachment" "k8s_node" {
+  name = "k8s-node"
 
   roles = [
     aws_iam_role.k8s_node_role.name,
   ]
 
-  policy_arn = aws_iam_policy.ec2_network_access.arn
-}
-
-resource "aws_iam_policy_attachment" "ecr_get" {
-  name = "ecr-get"
-
-  roles = [
-    aws_iam_role.k8s_node_role.name,
-  ]
-
-  policy_arn = aws_iam_policy.ecr_get.arn
-}
-
-resource "aws_iam_policy_attachment" "s3_get" {
-  name = "s3-get"
-
-  roles = [
-    aws_iam_role.k8s_node_role.name,
-  ]
-
-  policy_arn = aws_iam_policy.s3_get.arn
+  policy_arn = aws_iam_policy.k8s_node.arn
 }
 
 resource "aws_iam_policy_attachment" "sts_assume_for_kiam_role" {

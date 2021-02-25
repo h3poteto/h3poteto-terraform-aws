@@ -61,11 +61,18 @@ resource "aws_iam_policy" "alb_ingress_policy" {
   policy      = file("aws_iam_policies/alb_ingress_policy.json")
 }
 
-resource "aws_iam_policy" "k8s_cluster" {
-  name        = "k8s-cluster-policy"
+resource "aws_iam_policy" "k8s_master" {
+  name        = "k8s-master-policy"
   path        = "/"
   description = ""
-  policy      = file("aws_iam_policies/k8s_cluster_policy.json")
+  policy      = file("aws_iam_policies/k8s_master_policy.json")
+}
+
+resource "aws_iam_policy" "k8s_node" {
+  name        = "k8s-node-policy"
+  path        = "/"
+  description = ""
+  policy      = file("aws_iam_policies/k8s_node_policy.json")
 }
 
 resource "aws_iam_policy" "ec2_network_access" {
