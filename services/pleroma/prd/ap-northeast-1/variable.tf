@@ -15,7 +15,7 @@ variable "pleroma_io_host_zone_id" {
 }
 
 variable "alb_dns_name" {
-  default = "a5a91729-webpublic-albingr-4676-26761550.ap-northeast-1.elb.amazonaws.com"
+  default = "k8s-webpubli-albingre-3d19bee277-2102550021.ap-northeast-1.elb.amazonaws.com"
 }
 
 variable "alb_hosted_zone_id" {
