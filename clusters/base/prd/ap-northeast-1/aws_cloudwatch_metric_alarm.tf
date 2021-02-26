@@ -1,4 +1,4 @@
-resource "aws_cloudwatch_metric_alarm" "asg_nodes" {
+resource "aws_cloudwatch_metric_alarm" "asg_nodes_a" {
   alarm_name          = "Node instances are terminated"
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = 1
@@ -6,11 +6,47 @@ resource "aws_cloudwatch_metric_alarm" "asg_nodes" {
   namespace           = "AWS/AutoScaling"
   period              = 300
   statistic           = "Minimum"
-  threshold           = 3
-  alarm_description   = "Nodeのインスタンスが不足しています"
+  threshold           = 1
+  alarm_description   = "nodes-1aのインスタンスが不足しています"
 
   dimensions = {
-    AutoScalingGroupName = "nodes.external-prd-20200329.k8s.h3poteto.dev"
+    AutoScalingGroupName = "nodes-ap-northeast-1a.external-prd-20210225.k8s.h3poteto.dev"
+  }
+  alarm_actions = ["arn:aws:sns:ap-northeast-1:564677439943:slack-alarm"]
+  ok_actions    = ["arn:aws:sns:ap-northeast-1:564677439943:slack-alarm"]
+}
+
+resource "aws_cloudwatch_metric_alarm" "asg_nodes_c" {
+  alarm_name          = "Node instances are terminated"
+  comparison_operator = "LessThanThreshold"
+  evaluation_periods  = 1
+  metric_name         = "GroupInServiceInstances"
+  namespace           = "AWS/AutoScaling"
+  period              = 300
+  statistic           = "Minimum"
+  threshold           = 1
+  alarm_description   = "nodes-1cのインスタンスが不足しています"
+
+  dimensions = {
+    AutoScalingGroupName = "nodes-ap-northeast-1c.external-prd-20210225.k8s.h3poteto.dev"
+  }
+  alarm_actions = ["arn:aws:sns:ap-northeast-1:564677439943:slack-alarm"]
+  ok_actions    = ["arn:aws:sns:ap-northeast-1:564677439943:slack-alarm"]
+}
+
+resource "aws_cloudwatch_metric_alarm" "asg_nodes_d" {
+  alarm_name          = "Node instances are terminated"
+  comparison_operator = "LessThanThreshold"
+  evaluation_periods  = 1
+  metric_name         = "GroupInServiceInstances"
+  namespace           = "AWS/AutoScaling"
+  period              = 300
+  statistic           = "Minimum"
+  threshold           = 1
+  alarm_description   = "nodes-1dのインスタンスが不足しています"
+
+  dimensions = {
+    AutoScalingGroupName = "nodes-ap-northeast-1d.external-prd-20210225.k8s.h3poteto.dev"
   }
   alarm_actions = ["arn:aws:sns:ap-northeast-1:564677439943:slack-alarm"]
   ok_actions    = ["arn:aws:sns:ap-northeast-1:564677439943:slack-alarm"]
@@ -27,7 +63,7 @@ resource "aws_cloudwatch_metric_alarm" "asg_master_a" {
   threshold           = 1
   alarm_description   = "master-1aのインスタンスが不足しています"
   dimensions = {
-    AutoScalingGroupName = "master-ap-northeast-1a.masters.external-prd-20200329.k8s.h3poteto.dev"
+    AutoScalingGroupName = "master-ap-northeast-1a.masters.external-prd-20210225.k8s.h3poteto.dev"
   }
 
   alarm_actions = ["arn:aws:sns:ap-northeast-1:564677439943:slack-alarm"]
@@ -46,7 +82,7 @@ resource "aws_cloudwatch_metric_alarm" "asg_master_c" {
   threshold           = 1
   alarm_description   = "master-1cのインスタンスが不足しています"
   dimensions = {
-    AutoScalingGroupName = "master-ap-northeast-1c.masters.external-prd-20200329.k8s.h3poteto.dev"
+    AutoScalingGroupName = "master-ap-northeast-1c.masters.external-prd-20210225.k8s.h3poteto.dev"
   }
 
   alarm_actions = ["arn:aws:sns:ap-northeast-1:564677439943:slack-alarm"]
@@ -64,7 +100,7 @@ resource "aws_cloudwatch_metric_alarm" "asg_master_d" {
   threshold           = 1
   alarm_description   = "master-1dのインスタンスが不足しています"
   dimensions = {
-    AutoScalingGroupName = "master-ap-northeast-1d.masters.external-prd-20200329.k8s.h3poteto.dev"
+    AutoScalingGroupName = "master-ap-northeast-1d.masters.external-prd-20210225.k8s.h3poteto.dev"
   }
 
   alarm_actions = ["arn:aws:sns:ap-northeast-1:564677439943:slack-alarm"]
