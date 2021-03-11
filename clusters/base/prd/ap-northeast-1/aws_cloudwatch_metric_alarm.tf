@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_metric_alarm" "asg_nodes_a" {
-  alarm_name          = "Node instances are terminated"
+  alarm_name          = "Nodes a instances are terminated"
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = 1
   metric_name         = "GroupInServiceInstances"
@@ -17,7 +17,7 @@ resource "aws_cloudwatch_metric_alarm" "asg_nodes_a" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "asg_nodes_c" {
-  alarm_name          = "Node instances are terminated"
+  alarm_name          = "Nodes c instances are terminated"
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = 1
   metric_name         = "GroupInServiceInstances"
@@ -35,7 +35,7 @@ resource "aws_cloudwatch_metric_alarm" "asg_nodes_c" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "asg_nodes_d" {
-  alarm_name          = "Node instances are terminated"
+  alarm_name          = "Nodes d instances are terminated"
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = 1
   metric_name         = "GroupInServiceInstances"
@@ -162,7 +162,7 @@ resource "aws_cloudwatch_metric_alarm" "elb_response_time" {
   statistic           = "Average"
   threshold           = 20
   dimensions = {
-    LoadBalancer = "app/a5a91729-webpublic-albingr-4676/31765f5ebf155f54"
+    LoadBalancer = "app/k8s-webpubli-albingre-3d19bee277/0437373cf0fdd0f4"
   }
   alarm_description = "ALBのレスポンスタイムが20秒を超えています"
 
