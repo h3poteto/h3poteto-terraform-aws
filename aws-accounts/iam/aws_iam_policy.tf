@@ -61,6 +61,13 @@ resource "aws_iam_policy" "alb_ingress_policy" {
   policy      = file("aws_iam_policies/alb_ingress_policy.json")
 }
 
+resource "aws_iam_policy" "node_manager_policy" {
+  name        = "node-manager-policy"
+  path        = "/"
+  description = ""
+  policy      = file("aws_iam_policies/node_manager_policy.json")
+}
+
 resource "aws_iam_policy" "k8s_master" {
   name        = "k8s-master-policy"
   path        = "/"

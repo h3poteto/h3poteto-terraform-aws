@@ -60,6 +60,13 @@ resource "aws_iam_role" "kms_secrets_role" {
   assume_role_policy = data.template_file.irsa_assume_role_policy.rendered
 }
 
+resource "aws_iam_role" "node_manager_controller_role" {
+  name = "node-manager-controller-role"
+  path = "/"
+
+  assume_role_policy = data.template_file.irsa_assume_role_policy.rendered
+}
+
 resource "aws_iam_role" "kubernetes_admin_role" {
   name               = "kubernetes-admin-role"
   path               = "/"

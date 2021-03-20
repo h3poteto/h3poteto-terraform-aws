@@ -127,6 +127,16 @@ resource "aws_iam_policy_attachment" "alb_ingress" {
   policy_arn = aws_iam_policy.alb_ingress_policy.arn
 }
 
+resource "aws_iam_policy_attachment" "node_manager" {
+  name = "node-manager"
+
+  roles = [
+    aws_iam_role.node_manager_controller_role.name,
+  ]
+
+  policy_arn = aws_iam_policy.node_manager_policy.arn
+}
+
 resource "aws_iam_policy_attachment" "logs_full" {
   name = "logs-full"
 
