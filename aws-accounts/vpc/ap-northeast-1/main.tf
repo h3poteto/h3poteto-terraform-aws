@@ -20,7 +20,7 @@ module "vpc" {
   subnet_2_az = "ap-northeast-1c"
   subnet_3_az = "ap-northeast-1d"
 
-  cluster_name = "external-prd-20200329.k8s.h3poteto.dev"
+  cluster_name = "external-prd-20210225.k8s.h3poteto.dev"
 }
 
 module "playground" {
