@@ -12,6 +12,6 @@ data "aws_iam_policy_document" "kms" {
       "kms:DescribeKey",
     ]
 
-    resources = ["${aws_kms_key.key.arn}"]
+    resources = [aws_kms_key.key.arn]
   }
 }
