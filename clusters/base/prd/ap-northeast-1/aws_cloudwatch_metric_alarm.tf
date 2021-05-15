@@ -115,8 +115,8 @@ resource "aws_cloudwatch_metric_alarm" "rds_storage" {
   namespace           = "AWS/RDS"
   period              = 300
   statistic           = "Minimum"
-  threshold           = 20000000000
-  alarm_description   = "RDSの空き容量が不足しています"
+  threshold           = 42949672960
+  alarm_description   = "RDSの空き容量が不足しています．このままだとpg_repackが実行できなくなります．DBのデータを削除等してpg_repackを実行してください"
 
   alarm_actions = ["arn:aws:sns:ap-northeast-1:564677439943:slack-alarm"]
   ok_actions    = ["arn:aws:sns:ap-northeast-1:564677439943:slack-alarm"]
