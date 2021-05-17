@@ -81,6 +81,7 @@ resource "aws_iam_policy_attachment" "k8s_master" {
 
   roles = [
     aws_iam_role.k8s_master_role.name,
+    aws_iam_role.playground_k8s_master_role.name,
   ]
 
   policy_arn = aws_iam_policy.k8s_master.arn
@@ -91,6 +92,7 @@ resource "aws_iam_policy_attachment" "k8s_node" {
 
   roles = [
     aws_iam_role.k8s_node_role.name,
+    aws_iam_role.playground_k8s_worker_role.name,
   ]
 
   policy_arn = aws_iam_policy.k8s_node.arn
@@ -111,6 +113,7 @@ resource "aws_iam_policy_attachment" "sts_assume_role_for_all" {
 
   roles = [
     aws_iam_role.k8s_node_role.name,
+    aws_iam_role.playground_k8s_worker_role.name,
     aws_iam_role.kiam_master_role.name
   ]
 
