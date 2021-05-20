@@ -29,7 +29,7 @@ resource "aws_iam_role" "k8s_master_role" {
 }
 
 resource "aws_iam_role" "playground_k8s_master_role" {
-  name               = "playground-k8s-master-role"
+  name               = "masters.playground.k8s.h3poteto.dev"
   path               = "/"
   assume_role_policy = file("aws_iam_role_policies/ec2_assume_role_policy.json")
 }
@@ -40,8 +40,8 @@ resource "aws_iam_role" "k8s_node_role" {
   assume_role_policy = file("aws_iam_role_policies/ec2_assume_role_policy.json")
 }
 
-resource "aws_iam_role" "playground_k8s_worker_role" {
-  name               = "playground-k8s-worker-role"
+resource "aws_iam_role" "playground_k8s_node_role" {
+  name               = "nodes.playground.k8s.h3poteto.dev"
   path               = "/"
   assume_role_policy = file("aws_iam_role_policies/ec2_assume_role_policy.json")
 }
