@@ -99,3 +99,12 @@ resource "aws_iam_role" "seiyuwatch_prd_pod_role" {
   path               = "/"
   assume_role_policy = data.template_file.irsa_assume_role_policy.rendered
 }
+
+/*
+ Custom
+*/
+resource "aws_iam_role" "fis_role" {
+  name               = "fis-role"
+  path               = "/"
+  assume_role_policy = file("aws_iam_role_policies/fis_assume_role_policy.json")
+}

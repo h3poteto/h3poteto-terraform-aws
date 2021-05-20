@@ -152,3 +152,17 @@ resource "aws_iam_policy" "cluster_autoscaler_policy" {
   description = ""
   policy      = file("aws_iam_policies/cluster_autoscaler_policy.json")
 }
+
+resource "aws_iam_policy" "fis_basic_policy" {
+  name        = "fis-basic-policy"
+  path        = "/"
+  description = ""
+  policy      = file("aws_iam_policies/fis_basic_policy.json")
+}
+
+resource "aws_iam_policy" "fis_experiments_policy" {
+  name        = "fis-experiments-policy"
+  path        = "/"
+  description = ""
+  policy      = file("aws_iam_policies/fis_experiments_policy.json")
+}
