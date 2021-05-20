@@ -165,6 +165,7 @@ resource "aws_iam_policy_attachment" "ec2_full" {
 
   roles = [
     aws_iam_role.asg_refresher_role.name,
+    aws_iam_role.fis_role.name,
   ]
 
   policy_arn = aws_iam_policy.ec2_full_access_policy.arn
@@ -179,4 +180,24 @@ resource "aws_iam_policy_attachment" "cloudwatch_read_only" {
   ]
 
   policy_arn = aws_iam_policy.cloudwatch_read_only_policy.arn
+}
+
+resource "aws_iam_policy_attachment" "fis_basic" {
+  name = "fis_basic"
+
+  roles = [
+    aws_iam_role.fis_role.name,
+  ]
+
+  policy_arn = aws_iam_policy.fis_basic_policy.arn
+}
+
+resource "aws_iam_policy_attachment" "fis_experiments" {
+  name = "fis-experiments"
+
+  roles = [
+    aws_iam_role.fis_role.name,
+  ]
+
+  policy_arn = aws_iam_policy.fis_experiments_policy.arn
 }
