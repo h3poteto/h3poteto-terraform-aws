@@ -119,8 +119,7 @@
     {
       "Action": [
         "iam:ListServerCertificates",
-        "iam:GetServerCertificate",
-        "iam:GetInstanceProfile"
+        "iam:GetServerCertificate"
       ],
       "Effect": "Allow",
       "Resource": [
